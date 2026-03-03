@@ -4,9 +4,13 @@ import { useEffect, useState } from 'react';
 
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState('home');
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
   const [isDark, setIsDark] = useState(true);
+  const [typedText, setTypedText] = useState('');
+  
+  const phrases = ['Back end development', 'Front end development', 'UI/UX Design', 'Mobile Development'];
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
@@ -33,17 +37,36 @@ export default function Portfolio() {
       }
     };
 
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-
     window.addEventListener('scroll', handleScroll);
-    window.addEventListener('mousemove', handleMouseMove);
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
+
+  // Typing animation effect
+  useEffect(() => {
+    const currentPhrase = phrases[phraseIndex];
+    const typingSpeed = isDeleting ? 50 : 100;
+    
+    const timer = setTimeout(() => {
+      if (!isDeleting) {
+        if (typedText.length < currentPhrase.length) {
+          setTypedText(currentPhrase.slice(0, typedText.length + 1));
+        } else {
+          setTimeout(() => setIsDeleting(true), 2000);
+        }
+      } else {
+        if (typedText.length > 0) {
+          setTypedText(currentPhrase.slice(0, typedText.length - 1));
+        } else {
+          setIsDeleting(false);
+          setPhraseIndex((prev) => (prev + 1) % phrases.length);
+        }
+      }
+    }, typingSpeed);
+
+    return () => clearTimeout(timer);
+  }, [typedText, isDeleting, phraseIndex]);
 
   const toggleTheme = () => {
     const newTheme = !isDark;
@@ -68,21 +91,6 @@ export default function Portfolio() {
           isDark 
             ? 'bg-gradient-to-br from-blue-900/10 via-purple-900/10 to-pink-900/10' 
             : 'bg-gradient-to-br from-orange-200/20 via-pink-200/20 to-purple-200/20'
-        }`}></div>
-        <div 
-          className={`absolute w-96 h-96 rounded-full blur-3xl transition-all duration-1000 ease-out ${
-            isDark ? 'bg-blue-500/20' : 'bg-orange-400/30'
-          }`}
-          style={{
-            left: `${mousePosition.x - 192}px`,
-            top: `${mousePosition.y - 192}px`,
-          }}
-        ></div>
-        <div className={`absolute top-1/4 left-1/4 w-64 h-64 rounded-full blur-3xl animate-pulse ${
-          isDark ? 'bg-purple-500/10' : 'bg-pink-400/20'
-        }`}></div>
-        <div className={`absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full blur-3xl animate-pulse delay-1000 ${
-          isDark ? 'bg-pink-500/10' : 'bg-purple-400/20'
         }`}></div>
       </div>
 
@@ -123,104 +131,162 @@ export default function Portfolio() {
       <nav className={`fixed top-0 w-full backdrop-blur-md z-50 border-b transition-colors duration-500 ${
         isDark 
           ? 'bg-[#0B0F1A]/80 border-[#1a1f2e]/50' 
-          : 'bg-white/80 border-orange-200/50'
+          : 'bg-white/80 border-purple-200/50'
       }`}>
-        <div className="max-w-7xl mx-auto px-6 py-5">
+        <div className="max-w-7xl mx-auto px-8 py-5">
           <div className="flex justify-between items-center">
-            <h1 className={`text-2xl font-bold bg-clip-text text-transparent animate-gradient ${
-              isDark 
-                ? 'bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500' 
-                : 'bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600'
-            }`}>
-              Arlene
-            </h1>
-            <ul className="flex gap-8">
-              {['home', 'about', 'projects', 'contact'].map((section) => (
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center text-white font-bold text-xl">
+                A
+              </div>
+              <span className={`text-xl font-semibold ${
+                isDark ? 'text-white' : 'text-gray-900'
+              }`}>Arlene</span>
+            </div>
+            <ul className="flex gap-8 items-center">
+              {['home', 'about', 'projects', 'services'].map((section) => (
                 <li key={section}>
                   <button
                     onClick={() => scrollToSection(section)}
-                    className={`relative capitalize transition-all duration-300 group ${
-                      isDark ? 'hover:text-white' : 'hover:text-orange-600'
+                    className={`capitalize transition-all duration-300 relative ${
+                      activeSection === section 
+                        ? (isDark ? 'text-purple-400' : 'text-purple-600')
+                        : (isDark ? 'text-gray-300 hover:text-white' : 'text-gray-700 hover:text-purple-600')
                     }`}
                   >
-                    {section}
-                    <span 
-                      className={`absolute -bottom-1 left-0 h-0.5 transition-all duration-300 ${
-                        isDark 
-                          ? 'bg-gradient-to-r from-blue-500 to-purple-500' 
-                          : 'bg-gradient-to-r from-orange-500 to-pink-500'
-                      } ${activeSection === section ? 'w-full' : 'w-0 group-hover:w-full'}`}
-                    ></span>
+                    {section === 'home' ? 'Home' : section === 'about' ? 'About' : section === 'projects' ? 'Projects' : 'Services'}
                   </button>
                 </li>
               ))}
+              <li>
+                <button
+                  onClick={() => scrollToSection('contact')}
+                  className={`px-8 py-3 rounded-lg font-semibold transition-all duration-300 ${
+                    isDark 
+                      ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:shadow-lg hover:shadow-purple-500/50' 
+                      : 'bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:shadow-lg hover:shadow-purple-400/50'
+                  }`}
+                >
+                  Contact
+                </button>
+              </li>
             </ul>
           </div>
         </div>
       </nav>
 
       {/* Home Section */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center px-6 z-10">
-        <div className={`max-w-5xl text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="mb-6 inline-block">
-            <span className={`text-sm font-semibold tracking-widest uppercase animate-pulse ${
-              isDark ? 'text-blue-400' : 'text-orange-600'
-            }`}>Welcome to my portfolio</span>
-          </div>
-          <h2 className={`text-7xl md:text-8xl font-bold mb-6 bg-clip-text text-transparent leading-tight ${
-            isDark 
-              ? 'bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500' 
-              : 'bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600'
-          }`}>
-            Hi, I'm Arlene ISHIMWE
-          </h2>
-          <p className={`text-3xl mb-8 font-light ${
-            isDark ? 'text-gray-300' : 'text-gray-700'
-          }`}>
-            Full Stack Developer & Creative Technologist
-          </p>
-          <p className={`text-xl max-w-3xl mx-auto mb-12 leading-relaxed ${
-            isDark ? 'text-gray-400' : 'text-gray-600'
-          }`}>
-            I craft exceptional digital experiences that blend beautiful design with powerful functionality. 
-            Let's build something extraordinary together.
-          </p>
-          <div className="flex gap-6 justify-center items-center">
-            <button 
-              onClick={() => scrollToSection('projects')}
-              className={`px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:scale-105 ${
-                isDark 
-                  ? 'bg-gradient-to-r from-blue-600 to-purple-600 hover:shadow-lg hover:shadow-purple-500/50' 
-                  : 'bg-gradient-to-r from-orange-500 to-pink-500 text-white hover:shadow-lg hover:shadow-orange-500/50'
-              }`}
-            >
-              View My Work
-            </button>
-            <button 
+      <section id="home" className="relative min-h-screen flex items-center px-8 z-10 pt-20 overflow-hidden">
+        {/* Decorative Grid Elements */}
+        <div className="absolute top-20 left-10 w-64 h-64 opacity-20 pointer-events-none">
+          <svg viewBox="0 0 100 100" className={isDark ? 'text-purple-500' : 'text-purple-400'}>
+            <defs>
+              <pattern id="grid-light" width="10" height="10" patternUnits="userSpaceOnUse">
+                <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" strokeWidth="0.5"/>
+              </pattern>
+            </defs>
+            <rect width="100" height="100" fill="url(#grid-light)" />
+          </svg>
+        </div>
+        
+        <div className="absolute bottom-32 left-20 w-48 h-48 opacity-15 pointer-events-none">
+          <svg viewBox="0 0 100 100" className={isDark ? 'text-blue-500' : 'text-pink-400'}>
+            <defs>
+              <pattern id="grid-small" width="8" height="8" patternUnits="userSpaceOnUse">
+                <path d="M 8 0 L 0 0 0 8" fill="none" stroke="currentColor" strokeWidth="0.5"/>
+              </pattern>
+            </defs>
+            <rect width="100" height="100" fill="url(#grid-small)" />
+          </svg>
+        </div>
+
+        {/* Decorative Curved Arrow */}
+        <div className="absolute top-32 right-1/3 w-32 h-32 opacity-30 pointer-events-none">
+          <svg viewBox="0 0 100 100" className={isDark ? 'text-purple-400' : 'text-purple-500'} fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M 20 80 Q 40 20, 80 40" strokeLinecap="round"/>
+            <circle cx="50" cy="45" r="8" fill="none"/>
+            <path d="M 75 35 L 80 40 L 75 45" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </div>
+
+        <div className="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-16 items-center">
+          {/* Left Content */}
+          <div className={`pl-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <h1 className={`text-5xl md:text-6xl font-bold mb-6 ${
+              isDark ? 'text-white' : 'text-gray-900'
+            }`}>
+              Hey there!, I'm<br />
+              <span className={isDark ? 'text-white' : 'text-gray-900'}>Arlene ISHIMWE</span>
+            </h1>
+            
+            <p className={`text-lg mb-6 leading-relaxed ${
+              isDark ? 'text-gray-300' : 'text-gray-700'
+            }`}>
+              A Full Stack Developer from the heart of Rwanda. I get excited about building beautiful, functional web applications that make a difference. When I'm not crafting clean code, I'm thinking about how to make technology more intuitive and enjoyable for everyone.
+            </p>
+            
+            <div className="mb-8">
+              <span className={`text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                I am into{' '}
+              </span>
+              <span className={`text-xl font-semibold ${
+                isDark ? 'text-blue-400' : 'text-blue-600'
+              }`}>
+                {typedText}
+                <span className="animate-pulse">|</span>
+              </span>
+            </div>
+            
+            <button
               onClick={() => scrollToSection('contact')}
-              className={`px-8 py-4 border-2 rounded-full font-semibold transition-all duration-300 hover:scale-105 ${
+              className={`px-10 py-4 rounded-lg font-semibold transition-all duration-300 hover:scale-105 ${
                 isDark 
-                  ? 'border-gray-600 hover:border-purple-500 hover:text-purple-400' 
-                  : 'border-orange-400 hover:border-orange-600 hover:text-orange-600'
+                  ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:shadow-lg hover:shadow-purple-500/50' 
+                  : 'bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:shadow-lg hover:shadow-purple-400/50'
               }`}
             >
-              Get In Touch
+              Say Hello
             </button>
           </div>
-          <div className="flex gap-6 justify-center mt-12">
-            {['GitHub', 'LinkedIn', 'Twitter'].map((social) => (
-              <a 
-                key={social}
-                href="#"
-                className={`w-12 h-12 rounded-full border flex items-center justify-center transition-all duration-300 hover:scale-110 ${
-                  isDark 
-                    ? 'border-gray-700 hover:border-purple-500 hover:text-purple-400' 
-                    : 'border-orange-300 hover:border-orange-500 hover:text-orange-600'
-                }`}
-              >
-                {social[0]}
-              </a>
-            ))}
+
+          {/* Right Illustration */}
+          <div className="relative flex justify-center items-center">
+            {/* Grid decoration behind illustration */}
+            <div className="absolute inset-0 flex items-center justify-center opacity-10">
+              <svg viewBox="0 0 200 200" className={`w-full h-full ${isDark ? 'text-purple-500' : 'text-purple-400'}`}>
+                <defs>
+                  <pattern id="grid-bg" width="20" height="20" patternUnits="userSpaceOnUse">
+                    <path d="M 20 0 L 0 0 0 20" fill="none" stroke="currentColor" strokeWidth="0.5"/>
+                  </pattern>
+                </defs>
+                <rect width="200" height="200" fill="url(#grid-bg)" />
+              </svg>
+            </div>
+
+            <div className={`relative w-full max-w-md aspect-square rounded-full flex items-center justify-center ${
+              isDark ? 'bg-gradient-to-br from-blue-900/20 to-purple-900/20' : 'bg-gradient-to-br from-purple-100 to-pink-100'
+            }`}>
+              {/* Developer Illustration */}
+              <div className="text-center">
+                <div className="text-8xl mb-4">👨‍💻</div>
+                
+                {/* Floating Icons */}
+                <div className="absolute top-10 left-10 w-16 h-16 bg-gradient-to-br from-pink-400 to-pink-600 rounded-full flex items-center justify-center text-2xl animate-float shadow-lg">
+                  🎨
+                </div>
+                <div className="absolute top-20 right-10 w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center text-2xl animate-float shadow-lg" style={{ animationDelay: '0.5s' }}>
+                  ⚛️
+                </div>
+                <div className="absolute bottom-20 left-16 w-16 h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center text-2xl animate-float shadow-lg" style={{ animationDelay: '1s' }}>
+                  💻
+                </div>
+                
+                {/* Plant decoration */}
+                <div className="absolute bottom-0 left-1/4 text-6xl">
+                  🌿
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -426,14 +492,14 @@ export default function Portfolio() {
                     ))}
                   </div>
                   <div className="flex gap-4">
-                    <button className={`flex-1 px-4 py-2 rounded-lg font-semibold transition-all duration-300 ${
+                    <button className={`flex-1 px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
                       isDark 
                         ? 'bg-gradient-to-r from-blue-600 to-purple-600 hover:shadow-lg hover:shadow-purple-500/50' 
                         : 'bg-gradient-to-r from-orange-500 to-pink-500 text-white hover:shadow-lg hover:shadow-orange-500/50'
                     }`}>
                       View Demo
                     </button>
-                    <button className={`px-4 py-2 border rounded-lg font-semibold transition-all duration-300 ${
+                    <button className={`px-6 py-3 border rounded-lg font-semibold transition-all duration-300 ${
                       isDark 
                         ? 'border-gray-600 hover:border-purple-500 hover:text-purple-400' 
                         : 'border-orange-400 hover:border-orange-600 hover:text-orange-600'
@@ -541,7 +607,7 @@ export default function Portfolio() {
             ></textarea>
             <button
               type="submit"
-              className={`w-full font-semibold py-4 rounded-xl transition-all duration-300 hover:scale-[1.02] ${
+              className={`w-full font-semibold py-4 px-6 rounded-xl transition-all duration-300 hover:scale-[1.02] ${
                 isDark 
                   ? 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white hover:shadow-lg hover:shadow-purple-500/50' 
                   : 'bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white hover:shadow-lg hover:shadow-orange-500/50'

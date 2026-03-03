@@ -225,7 +225,7 @@ export default function Portfolio() {
         <div className="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-16 items-center relative z-10">
           {/* Left Content */}
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`}>
-            <h1 className={`text-5xl md:text-6xl font-bold mb-6 ${
+            <h1 className={`text-5xl md:text-6xl font-bold mb-8 ${
               isDark ? 'text-white' : 'text-gray-900'
             }`}>
               Hey there! <span className="inline-block animate-wave">👋</span>, I'm<br />
@@ -293,7 +293,7 @@ export default function Portfolio() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="relative min-h-screen flex items-center justify-center px-6 py-20 z-10">
+      <section id="about" className="relative min-h-screen flex items-center justify-center px-6 py-4 z-10">
         <div className="max-w-6xl w-full">
           <div className="text-center mb-16">
             <h2 className={`text-6xl font-bold mb-4 bg-clip-text text-transparent ${
@@ -386,7 +386,7 @@ export default function Portfolio() {
             {['React', 'Next.js', 'TypeScript', 'Node.js', 'Tailwind', 'MongoDB', 'Git', 'AWS'].map((skill, index) => (
               <div 
                 key={skill} 
-                className={`backdrop-blur-sm border p-6 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-lg group ${
+                className={`backdrop-blur-sm border p-6 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:shadow-lg group ${
                   isDark 
                     ? 'bg-[#0D1117]/50 border-[#1a1f2e] hover:bg-[#161B22] hover:border-purple-500/50 hover:shadow-purple-500/20' 
                     : 'bg-white/50 border-orange-200 hover:bg-white hover:border-orange-400 hover:shadow-orange-500/20'

@@ -161,7 +161,7 @@ export default function Portfolio() {
               <li>
                 <button
                   onClick={() => scrollToSection('contact')}
-                  className={`px-12 py-4 rounded-md font-semibold transition-all duration-300 ${
+                  className={`rounded-md w-32 h-12 font-semibold transition-all duration-300 ${
                     isDark 
                       ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:shadow-lg hover:shadow-purple-500/50' 
                       : 'bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:shadow-lg hover:shadow-purple-400/50'
@@ -228,7 +228,7 @@ export default function Portfolio() {
             <h1 className={`text-5xl md:text-6xl font-bold mb-6 ${
               isDark ? 'text-white' : 'text-gray-900'
             }`}>
-              Hey there!, I'm<br />
+              Hey there! <span className="inline-block animate-wave">👋</span>, I'm<br />
               <span className={isDark ? 'text-white' : 'text-gray-900'}>Arlene ISHIMWE</span>
             </h1>
             
@@ -252,13 +252,13 @@ export default function Portfolio() {
             
             <button
               onClick={() => scrollToSection('contact')}
-              className={`rounded-xl text-xl  w-32 h-12 font-semibold transition-all duration-300 hover:scale-105 ${
+              className={`mt-4 rounded-md w-32 h-12 font-semibold transition-all duration-300 absolute -bottom-20 hover:scale-105 flex items-center justify-center gap-2 ${
                 isDark 
                   ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:shadow-lg hover:shadow-purple-500/50' 
                   : 'bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:shadow-lg hover:shadow-purple-400/50'
               }`}
             >
-              Say Hello
+              Say Hello <span className="inline-block animate-wave">👋</span>
             </button>
           </div>
 

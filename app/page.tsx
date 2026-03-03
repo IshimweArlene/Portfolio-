@@ -161,7 +161,7 @@ export default function Portfolio() {
               <li>
                 <button
                   onClick={() => scrollToSection('contact')}
-                  className={`px-8 py-3 rounded-lg font-semibold transition-all duration-300 ${
+                  className={`px-12 py-4 rounded-md font-semibold transition-all duration-300 ${
                     isDark 
                       ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:shadow-lg hover:shadow-purple-500/50' 
                       : 'bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:shadow-lg hover:shadow-purple-400/50'
@@ -176,42 +176,55 @@ export default function Portfolio() {
       </nav>
 
       {/* Home Section */}
-      <section id="home" className="relative min-h-screen flex items-center px-8 z-10 pt-20 overflow-hidden">
-        {/* Decorative Grid Elements */}
-        <div className="absolute top-20 left-10 w-64 h-64 opacity-20 pointer-events-none">
-          <svg viewBox="0 0 100 100" className={isDark ? 'text-purple-500' : 'text-purple-400'}>
+      <section id="home" className="relative min-h-screen flex items-center justify-center px-8 z-10 pt-20 overflow-hidden">
+        {/* Full Page Grid Background */}
+        <div className="absolute inset-0 w-full h-full opacity-10 pointer-events-none">
+          <svg width="100%" height="100%" className={isDark ? 'text-purple-500' : 'text-purple-400'}>
             <defs>
-              <pattern id="grid-light" width="10" height="10" patternUnits="userSpaceOnUse">
-                <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" strokeWidth="0.5"/>
+              <pattern id="grid-pattern" width="60" height="60" patternUnits="userSpaceOnUse">
+                <path d="M 60 0 L 0 0 0 60" fill="none" stroke="currentColor" strokeWidth="1"/>
               </pattern>
             </defs>
-            <rect width="100" height="100" fill="url(#grid-light)" />
-          </svg>
-        </div>
-        
-        <div className="absolute bottom-32 left-20 w-48 h-48 opacity-15 pointer-events-none">
-          <svg viewBox="0 0 100 100" className={isDark ? 'text-blue-500' : 'text-pink-400'}>
-            <defs>
-              <pattern id="grid-small" width="8" height="8" patternUnits="userSpaceOnUse">
-                <path d="M 8 0 L 0 0 0 8" fill="none" stroke="currentColor" strokeWidth="0.5"/>
-              </pattern>
-            </defs>
-            <rect width="100" height="100" fill="url(#grid-small)" />
+            <rect width="100%" height="100%" fill="url(#grid-pattern)" />
           </svg>
         </div>
 
         {/* Decorative Curved Arrow */}
-        <div className="absolute top-32 right-1/3 w-32 h-32 opacity-30 pointer-events-none">
-          <svg viewBox="0 0 100 100" className={isDark ? 'text-purple-400' : 'text-purple-500'} fill="none" stroke="currentColor" strokeWidth="2">
+        <div className="absolute top-32 right-1/3 w-40 h-40 opacity-40 pointer-events-none z-20">
+          <svg viewBox="0 0 100 100" className={isDark ? 'text-purple-400' : 'text-purple-500'} fill="none" stroke="currentColor" strokeWidth="2.5">
             <path d="M 20 80 Q 40 20, 80 40" strokeLinecap="round"/>
-            <circle cx="50" cy="45" r="8" fill="none"/>
-            <path d="M 75 35 L 80 40 L 75 45" strokeLinecap="round" strokeLinejoin="round"/>
+            <circle cx="50" cy="45" r="10" fill="none"/>
+            <path d="M 73 33 L 80 40 L 73 47" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
 
-        <div className="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-16 items-center">
+        {/* Additional decorative grid accent - top left */}
+        <div className="absolute top-0 left-0 w-96 h-96 opacity-20 pointer-events-none">
+          <svg viewBox="0 0 100 100" className={isDark ? 'text-blue-500' : 'text-pink-400'}>
+            <defs>
+              <pattern id="grid-accent-1" width="15" height="15" patternUnits="userSpaceOnUse">
+                <path d="M 15 0 L 0 0 0 15" fill="none" stroke="currentColor" strokeWidth="1.5"/>
+              </pattern>
+            </defs>
+            <rect width="100" height="100" fill="url(#grid-accent-1)" />
+          </svg>
+        </div>
+
+        {/* Additional decorative grid accent - bottom right */}
+        <div className="absolute bottom-0 right-0 w-96 h-96 opacity-5 pointer-events-none">
+          <svg viewBox="0 0 100 100" className={isDark ? 'text-pink-500' : 'text-orange-400'}>
+            <defs>
+              <pattern id="grid-accent-2" width="15" height="15" patternUnits="userSpaceOnUse">
+                <path d="M 15 0 L 0 0 0 15" fill="none" stroke="currentColor" strokeWidth="1.5"/>
+              </pattern>
+            </defs>
+            <rect width="100" height="100" fill="url(#grid-accent-2)" />
+          </svg>
+        </div>
+
+        <div className="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-16 items-center relative z-10">
           {/* Left Content */}
-          <div className={`pl-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`}>
             <h1 className={`text-5xl md:text-6xl font-bold mb-6 ${
               isDark ? 'text-white' : 'text-gray-900'
             }`}>
@@ -239,7 +252,7 @@ export default function Portfolio() {
             
             <button
               onClick={() => scrollToSection('contact')}
-              className={`px-10 py-4 rounded-lg font-semibold transition-all duration-300 hover:scale-105 ${
+              className={`px-16 py-5 rounded-md font-semibold transition-all duration-300 hover:scale-105 ${
                 isDark 
                   ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:shadow-lg hover:shadow-purple-500/50' 
                   : 'bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:shadow-lg hover:shadow-purple-400/50'
@@ -250,19 +263,7 @@ export default function Portfolio() {
           </div>
 
           {/* Right Illustration */}
-          <div className="relative flex justify-center items-center">
-            {/* Grid decoration behind illustration */}
-            <div className="absolute inset-0 flex items-center justify-center opacity-10">
-              <svg viewBox="0 0 200 200" className={`w-full h-full ${isDark ? 'text-purple-500' : 'text-purple-400'}`}>
-                <defs>
-                  <pattern id="grid-bg" width="20" height="20" patternUnits="userSpaceOnUse">
-                    <path d="M 20 0 L 0 0 0 20" fill="none" stroke="currentColor" strokeWidth="0.5"/>
-                  </pattern>
-                </defs>
-                <rect width="200" height="200" fill="url(#grid-bg)" />
-              </svg>
-            </div>
-
+          <div className={`relative flex justify-center items-center transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`}>
             <div className={`relative w-full max-w-md aspect-square rounded-full flex items-center justify-center ${
               isDark ? 'bg-gradient-to-br from-blue-900/20 to-purple-900/20' : 'bg-gradient-to-br from-purple-100 to-pink-100'
             }`}>

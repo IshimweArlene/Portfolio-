@@ -252,7 +252,7 @@ export default function Portfolio() {
             
             <button
               onClick={() => scrollToSection('contact')}
-              className={`px-16 py-5 rounded-md font-semibold transition-all duration-300 hover:scale-105 ${
+              className={`rounded-xl text-xl  w-32 h-12 font-semibold transition-all duration-300 hover:scale-105 ${
                 isDark 
                   ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:shadow-lg hover:shadow-purple-500/50' 
                   : 'bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:shadow-lg hover:shadow-purple-400/50'

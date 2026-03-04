@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useEffect, useState } from 'react';
 
@@ -83,14 +83,14 @@ export default function Portfolio() {
     <div className={`min-h-screen overflow-x-hidden transition-colors duration-500 ${
       isDark 
         ? 'bg-[#0B0F1A] text-gray-100' 
-        : 'bg-gradient-to-br from-orange-50 via-pink-50 to-purple-50 text-gray-900'
+        : 'bg-linear-to-br from-orange-50 via-pink-50 to-purple-50 text-gray-900'
     }`}>
       {/* Animated Background */}
       <div className="fixed inset-0 z-0">
         <div className={`absolute inset-0 transition-all duration-500 ${
           isDark 
-            ? 'bg-gradient-to-br from-blue-900/10 via-purple-900/10 to-pink-900/10' 
-            : 'bg-gradient-to-br from-orange-200/20 via-pink-200/20 to-purple-200/20'
+            ? 'bg-linear-to-br from-blue-900/10 via-purple-900/10 to-pink-900/10' 
+            : 'bg-linear-to-br from-orange-200/20 via-pink-200/20 to-purple-200/20'
         }`}></div>
       </div>
 
@@ -99,8 +99,8 @@ export default function Portfolio() {
         onClick={toggleTheme}
         className={`fixed bottom-8 left-8 z-50 w-16 h-16 rounded-full flex items-center justify-center transition-all duration-500 hover:scale-110 shadow-2xl ${
           isDark 
-            ? 'bg-gradient-to-br from-[#1a1f2e] to-[#2a2f3e] border-2 border-[#3a3f4e] hover:border-yellow-400 text-yellow-400 hover:shadow-yellow-400/50' 
-            : 'bg-gradient-to-br from-white to-orange-50 border-2 border-orange-300 hover:border-orange-500 text-orange-500 hover:shadow-orange-400/50'
+            ? 'bg-linear-to-br from-[#1a1f2e] to-[#2a2f3e] border-2 border-[#3a3f4e] hover:border-yellow-400 text-yellow-400 hover:shadow-yellow-400/50' 
+            : 'bg-linear-to-br from-white to-orange-50 border-2 border-orange-300 hover:border-orange-500 text-orange-500 hover:shadow-orange-400/50'
         }`}
         aria-label="Toggle theme"
       >
@@ -136,7 +136,7 @@ export default function Portfolio() {
         <div className="max-w-7xl mx-auto px-8 py-5">
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center text-white font-bold text-xl">
+              <div className="w-12 h-12 rounded-full bg-linear-to-br from-purple-400 to-pink-500 flex items-center justify-center text-white font-bold text-xl">
                 A
               </div>
               <span className={`text-xl font-semibold ${
@@ -163,8 +163,8 @@ export default function Portfolio() {
                   onClick={() => scrollToSection('contact')}
                   className={`rounded-md w-32 h-12 font-semibold transition-all duration-300 ${
                     isDark 
-                      ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:shadow-lg hover:shadow-purple-500/50' 
-                      : 'bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:shadow-lg hover:shadow-purple-400/50'
+                      ? 'bg-linear-to-r from-blue-600 to-purple-600 text-white hover:shadow-lg hover:shadow-purple-500/50' 
+                      : 'bg-linear-to-r from-purple-500 to-pink-500 text-white hover:shadow-lg hover:shadow-purple-400/50'
                   }`}
                 >
                   Contact
@@ -218,7 +218,7 @@ export default function Portfolio() {
                 <path d="M 15 0 L 0 0 0 15" fill="none" stroke="currentColor" strokeWidth="1.5"/>
               </pattern>
             </defs>
-            <rect width="100" height="100" fill="url(#grid-accent-2)" />
+            <rect width="100" height="100%" fill="url(#grid-accent-2)" />
           </svg>
         </div>
 
@@ -254,8 +254,8 @@ export default function Portfolio() {
               onClick={() => scrollToSection('contact')}
               className={`mt-4 rounded-md w-32 h-12 font-semibold transition-all duration-300 absolute -bottom-20 hover:scale-105 flex items-center justify-center gap-2 ${
                 isDark 
-                  ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:shadow-lg hover:shadow-purple-500/50' 
-                  : 'bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:shadow-lg hover:shadow-purple-400/50'
+                  ? 'bg-linear-to-r from-purple-600 to-pink-600 text-white hover:shadow-lg hover:shadow-purple-500/50' 
+                  : 'bg-linear-to-r from-purple-500 to-pink-500 text-white hover:shadow-lg hover:shadow-purple-400/50'
               }`}
             >
               Say Hello <span className="inline-block animate-wave">👋</span>
@@ -265,20 +265,20 @@ export default function Portfolio() {
           {/* Right Illustration */}
           <div className={`relative flex justify-center items-center transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`}>
             <div className={`relative w-full max-w-md aspect-square rounded-full flex items-center justify-center ${
-              isDark ? 'bg-gradient-to-br from-blue-900/20 to-purple-900/20' : 'bg-gradient-to-br from-purple-100 to-pink-100'
+              isDark ? 'bg-linear-to-br from-blue-900/20 to-purple-900/20' : 'bg-linear-to-br from-purple-100 to-pink-100'
             }`}>
               {/* Developer Illustration */}
               <div className="text-center">
                 <div className="text-8xl mb-4">👨‍💻</div>
                 
                 {/* Floating Icons */}
-                <div className="absolute top-10 left-10 w-16 h-16 bg-gradient-to-br from-pink-400 to-pink-600 rounded-full flex items-center justify-center text-2xl animate-float shadow-lg">
+                <div className="absolute top-10 left-10 w-16 h-16 bg-linear-to-br from-pink-400 to-pink-600 rounded-full flex items-center justify-center text-2xl animate-float shadow-lg">
                   🎨
                 </div>
-                <div className="absolute top-20 right-10 w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center text-2xl animate-float shadow-lg" style={{ animationDelay: '0.5s' }}>
+                <div className="absolute top-20 right-10 w-16 h-16 bg-linear-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center text-2xl animate-float shadow-lg" style={{ animationDelay: '0.5s' }}>
                   ⚛️
                 </div>
-                <div className="absolute bottom-20 left-16 w-16 h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center text-2xl animate-float shadow-lg" style={{ animationDelay: '1s' }}>
+                <div className="absolute bottom-20 left-16 w-16 h-16 bg-linear-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center text-2xl animate-float shadow-lg" style={{ animationDelay: '1s' }}>
                   💻
                 </div>
                 
@@ -298,105 +298,92 @@ export default function Portfolio() {
           <div className="text-center mb-16">
             <h2 className={`text-6xl font-bold mb-4 bg-clip-text text-transparent ${
               isDark 
-                ? 'bg-gradient-to-r from-blue-400 to-purple-500' 
-                : 'bg-gradient-to-r from-orange-500 to-pink-600'
+                ? 'bg-linear-to-r from-blue-400 to-purple-500' 
+                : 'bg-linear-to-r from-orange-500 to-pink-600'
             }`}>
               About Me
             </h2>
-            <div className={`w-24 h-1 mx-auto rounded-full ${
+            <div className={`w-24 h-1 mx-auto rounded-full mb-12 ${
               isDark 
-                ? 'bg-gradient-to-r from-blue-500 to-purple-500' 
-                : 'bg-gradient-to-r from-orange-500 to-pink-500'
+                ? 'bg-linear-to-r from-blue-500 to-purple-500' 
+                : 'bg-linear-to-r from-orange-500 to-pink-500'
             }`}></div>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-            <div className="space-y-6">
-              <p className={`text-xl leading-relaxed ${
-                isDark ? 'text-gray-300' : 'text-gray-700'
-              }`}>
-                I'm a passionate developer with expertise in building modern web applications that make a difference.
-              </p>
-              <p className={`text-lg leading-relaxed ${
-                isDark ? 'text-gray-400' : 'text-gray-600'
-              }`}>
-                I love turning complex problems into simple, beautiful, and intuitive solutions. 
-                With a keen eye for design and a deep understanding of technology, I create experiences that users love.
-              </p>
-              <div className="flex gap-4 pt-4">
-                <div className="text-center">
-                  <div className={`text-4xl font-bold ${
-                    isDark ? 'text-blue-400' : 'text-orange-500'
-                  }`}>50+</div>
-                  <div className={`text-sm ${
-                    isDark ? 'text-gray-500' : 'text-gray-600'
-                  }`}>Projects</div>
-                </div>
-                <div className="text-center">
-                  <div className={`text-4xl font-bold ${
-                    isDark ? 'text-purple-400' : 'text-pink-500'
-                  }`}>5+</div>
-                  <div className={`text-sm ${
-                    isDark ? 'text-gray-500' : 'text-gray-600'
-                  }`}>Years Exp</div>
-                </div>
-                <div className="text-center">
-                  <div className={`text-4xl font-bold ${
-                    isDark ? 'text-pink-400' : 'text-purple-500'
-                  }`}>100%</div>
-                  <div className={`text-sm ${
-                    isDark ? 'text-gray-500' : 'text-gray-600'
-                  }`}>Satisfaction</div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="space-y-4">
-              {[
-                { skill: 'React & Next.js', level: 95 },
-                { skill: 'TypeScript', level: 90 },
-                { skill: 'Node.js & APIs', level: 88 },
-                { skill: 'UI/UX Design', level: 85 },
-              ].map((item) => (
-                <div key={item.skill} className="group">
-                  <div className="flex justify-between mb-2">
-                    <span className={`font-medium ${
-                      isDark ? 'text-gray-300' : 'text-gray-700'
-                    }`}>{item.skill}</span>
-                    <span className={isDark ? 'text-blue-400' : 'text-orange-600'}>{item.level}%</span>
-                  </div>
-                  <div className={`h-2 rounded-full overflow-hidden ${
-                    isDark ? 'bg-[#161B22]' : 'bg-gray-200'
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            {/* Left - Profile Image */}
+            <div className="flex justify-center">
+              <div className="relative">
+                <div className={`w-80 h-80 rounded-full overflow-hidden border-4 ${
+                  isDark ? 'border-purple-500' : 'border-purple-400'
+                }`}>
+                  <div className={`w-full h-full flex items-center justify-center text-9xl ${
+                    isDark ? 'bg-linear-to-br from-purple-900/40 to-blue-900/40' : 'bg-linear-to-br from-purple-200 to-pink-200'
                   }`}>
-                    <div 
-                      className={`h-full rounded-full transition-all duration-1000 ease-out group-hover:shadow-lg ${
-                        isDark 
-                          ? 'bg-gradient-to-r from-blue-500 to-purple-500 group-hover:shadow-purple-500/50' 
-                          : 'bg-gradient-to-r from-orange-500 to-pink-500 group-hover:shadow-orange-500/50'
-                      }`}
-                      style={{ width: `${item.level}%` }}
-                    ></div>
+                    👨‍💻
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {['React', 'Next.js', 'TypeScript', 'Node.js', 'Tailwind', 'MongoDB', 'Git', 'AWS'].map((skill, index) => (
-              <div 
-                key={skill} 
-                className={`backdrop-blur-sm border p-6 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:shadow-lg group ${
-                  isDark 
-                    ? 'bg-[#0D1117]/50 border-[#1a1f2e] hover:bg-[#161B22] hover:border-purple-500/50 hover:shadow-purple-500/20' 
-                    : 'bg-white/50 border-orange-200 hover:bg-white hover:border-orange-400 hover:shadow-orange-500/20'
-                }`}
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="text-3xl mb-2 group-hover:scale-110 transition-transform">💎</div>
-                <div className="font-semibold">{skill}</div>
+                
+                {/* Social Icons */}
+                <div className="flex gap-4 justify-center mt-6">
+                  {[
+                    { icon: '📷', label: 'Instagram' },
+                    { icon: '💼', label: 'LinkedIn' },
+                    { icon: '🌐', label: 'GitHub' },
+                    { icon: '✖️', label: 'Twitter' }
+                  ].map((social) => (
+                    <a 
+                      key={social.label}
+                      href="#"
+                      className={`w-12 h-12 rounded-lg border-2 flex items-center justify-center transition-all duration-300 hover:scale-110 ${
+                        isDark 
+                          ? 'border-purple-500 hover:bg-purple-500/20' 
+                          : 'border-purple-400 hover:bg-purple-400/20'
+                      }`}
+                    >
+                      <span className="text-xl">{social.icon}</span>
+                    </a>
+                  ))}
+                </div>
               </div>
-            ))}
+            </div>
+
+            {/* Right - Content */}
+            <div className="space-y-8">
+              <div>
+                <h3 className={`text-4xl font-bold mb-8 ${
+                  isDark ? 'text-white' : 'text-gray-900'
+                }`}>
+                  I'm a Software Engineer
+                </h3>
+                
+                <p className={`text-lg leading-relaxed mb-8 ${
+                  isDark ? 'text-gray-300' : 'text-gray-700'
+                }`}>
+                  Hi, I'm Ishimwe Arlene. As a passionate software developer, I love turning ideas into innovative and meaningful solutions. I enjoy blending my technical skills with creative problem-solving to build applications that truly make a difference in people's lives. I thrive in teamwork, bringing positivity and creativity to every project. Let's connect!
+                </p>
+
+                <div className="flex gap-4">
+                  <button className={`px-8 py-3 rounded-md font-semibold transition-all duration-300 hover:scale-105 ${
+                    isDark 
+                      ? 'bg-linear-to-r from-purple-600 to-pink-600 text-white hover:shadow-lg hover:shadow-purple-500/50' 
+                      : 'bg-linear-to-r from-purple-500 to-pink-500 text-white hover:shadow-lg hover:shadow-purple-400/50'
+                  }`}>
+                    Resume
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection('contact')}
+                    className={`px-8 py-3 rounded-md border-2 font-semibold transition-all duration-300 hover:scale-105 animate-float ${
+                      isDark 
+                        ? 'border-gray-600 hover:border-purple-500 hover:text-purple-400' 
+                        : 'border-purple-400 hover:border-purple-600 hover:text-purple-600'
+                    }`}
+                  >
+                    Let's chat
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -407,107 +394,105 @@ export default function Portfolio() {
           <div className="text-center mb-16">
             <h2 className={`text-6xl font-bold mb-4 bg-clip-text text-transparent ${
               isDark 
-                ? 'bg-gradient-to-r from-blue-400 to-purple-500' 
-                : 'bg-gradient-to-r from-orange-500 to-pink-600'
+                ? 'bg-linear-to-r from-blue-400 to-purple-500' 
+                : 'bg-linear-to-r from-orange-500 to-pink-600'
             }`}>
               Featured Projects
             </h2>
             <div className={`w-24 h-1 mx-auto rounded-full ${
               isDark 
-                ? 'bg-gradient-to-r from-blue-500 to-purple-500' 
-                : 'bg-gradient-to-r from-orange-500 to-pink-500'
+                ? 'bg-linear-to-r from-blue-500 to-purple-500' 
+                : 'bg-linear-to-r from-orange-500 to-pink-500'
             }`}></div>
             <p className={`mt-6 text-lg ${
               isDark ? 'text-gray-400' : 'text-gray-600'
             }`}>Some of my recent work that I'm proud of</p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               { 
-                title: 'E-Commerce Platform', 
-                desc: 'A full-stack e-commerce solution with real-time inventory, payment integration, and admin dashboard.',
-                tags: ['Next.js', 'Stripe', 'MongoDB'],
-                gradient: isDark ? 'from-blue-500 to-cyan-500' : 'from-orange-400 to-yellow-400'
+                title: 'Diagnoss', 
+                desc: 'Diagnosis web app streamlines medical operations with features like appointment scheduling, patient records, billing, prescriptions, and inventory, enhancing efficiency and care quality.',
+                icon: '🏥',
+                color: isDark ? 'from-teal-500 to-cyan-500' : 'from-teal-400 to-cyan-400'
               },
               { 
-                title: 'AI Chat Application', 
-                desc: 'Real-time chat app with AI-powered responses, user authentication, and message encryption.',
-                tags: ['React', 'WebSocket', 'OpenAI'],
-                gradient: isDark ? 'from-purple-500 to-pink-500' : 'from-pink-400 to-rose-500'
+                title: 'Haha', 
+                desc: 'Core implements online buying and selling of products, featuring intuitive product browsing, cart, secure payments, and order management, ensuring convenience.',
+                icon: '🛒',
+                color: isDark ? 'from-orange-500 to-red-500' : 'from-orange-400 to-red-400'
               },
               { 
-                title: 'Portfolio CMS', 
-                desc: 'Content management system for creative professionals with drag-and-drop interface.',
-                tags: ['TypeScript', 'Node.js', 'PostgreSQL'],
-                gradient: isDark ? 'from-orange-500 to-red-500' : 'from-purple-400 to-indigo-500'
+                title: 'Ezy-Chat', 
+                desc: 'ezy-chat is a React Native-based chat application that leverages Firebase Authentication for secure user login and signup, with Firestore as its database.',
+                icon: '💬',
+                color: isDark ? 'from-purple-500 to-indigo-500' : 'from-purple-400 to-indigo-400'
               },
               { 
-                title: 'Analytics Dashboard', 
-                desc: 'Real-time analytics platform with interactive charts, data visualization, and reporting.',
-                tags: ['React', 'D3.js', 'Firebase'],
-                gradient: isDark ? 'from-green-500 to-teal-500' : 'from-teal-400 to-cyan-500'
+                title: 'CarExhibit', 
+                desc: 'CarExhibit - A modern automotive platform using Next.js, is your go-to destination for real-time data, intelligent search, and fast loading.',
+                icon: '🚗',
+                color: isDark ? 'from-blue-500 to-cyan-500' : 'from-blue-400 to-cyan-400'
+              },
+              { 
+                title: 'I Lead', 
+                desc: 'iLead management system. This web-based platform helps student leaders manage resources and day-to-day operation of iLead program in RCA.',
+                icon: '📊',
+                color: isDark ? 'from-gray-600 to-gray-800' : 'from-gray-400 to-gray-600'
+              },
+              { 
+                title: 'PSSL Website', 
+                desc: 'A responsive and informative website dedicated to Petit Séminaire Saint Léon Kabgayi, highlighting its rich history, academic programs, and staff.',
+                icon: '🎓',
+                color: isDark ? 'from-blue-600 to-indigo-700' : 'from-blue-500 to-indigo-600'
               },
             ].map((project, index) => (
               <div 
                 key={index} 
-                className={`group backdrop-blur-sm border rounded-2xl overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl ${
+                className={`group relative backdrop-blur-sm border rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl ${
                   isDark 
-                    ? 'bg-[#0D1117]/50 border-[#1a1f2e] hover:border-purple-500/50 hover:shadow-purple-500/20' 
-                    : 'bg-white/70 border-orange-200 hover:border-orange-400 hover:shadow-orange-500/20'
+                    ? 'bg-[#0D1117]/80 border-[#1a1f2e] hover:border-purple-500/50 hover:shadow-purple-500/20' 
+                    : 'bg-white/90 border-gray-200 hover:border-purple-400 hover:shadow-purple-500/20'
                 }`}
               >
-                <div className={`bg-gradient-to-br ${project.gradient} h-56 relative overflow-hidden`}>
+                {/* Project Image/Preview */}
+                <div className={`h-48 bg-linear-to-br ${project.color} relative overflow-hidden`}>
                   <div className={`absolute inset-0 transition-all duration-500 ${
-                    isDark ? 'bg-black/40 group-hover:bg-black/20' : 'bg-black/20 group-hover:bg-black/10'
+                    isDark ? 'bg-black/30 group-hover:bg-black/10' : 'bg-white/20 group-hover:bg-white/5'
                   }`}></div>
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-6xl opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
-                      🚀
+                    <div className="text-7xl opacity-80 group-hover:scale-110 transition-all duration-500">
+                      {project.icon}
                     </div>
                   </div>
+                  {/* Hover overlay icons */}
+                  <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                    <a href="#" className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all ${
+                      isDark ? 'bg-purple-600 hover:bg-purple-700' : 'bg-purple-500 hover:bg-purple-600'
+                    }`}>
+                      <span className="text-white text-xl">🔗</span>
+                    </a>
+                    <a href="#" className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all ${
+                      isDark ? 'bg-purple-600 hover:bg-purple-700' : 'bg-purple-500 hover:bg-purple-600'
+                    }`}>
+                      <span className="text-white text-xl">💻</span>
+                    </a>
+                  </div>
                 </div>
+                
+                {/* Project Info */}
                 <div className="p-6">
-                  <h3 className={`text-2xl font-bold mb-3 transition-colors ${
-                    isDark ? 'group-hover:text-purple-400' : 'group-hover:text-orange-600'
+                  <h3 className={`text-2xl font-bold mb-3 ${
+                    isDark ? 'text-white' : 'text-gray-900'
                   }`}>
                     {project.title}
                   </h3>
-                  <p className={`mb-4 leading-relaxed ${
+                  <p className={`text-sm leading-relaxed ${
                     isDark ? 'text-gray-400' : 'text-gray-600'
                   }`}>
                     {project.desc}
                   </p>
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {project.tags.map((tag) => (
-                      <span 
-                        key={tag}
-                        className={`px-3 py-1 border rounded-full text-sm ${
-                          isDark 
-                            ? 'bg-[#161B22] border-[#1a1f2e] text-gray-300' 
-                            : 'bg-orange-50 border-orange-200 text-gray-700'
-                        }`}
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="flex gap-4">
-                    <button className={`flex-1 px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
-                      isDark 
-                        ? 'bg-gradient-to-r from-blue-600 to-purple-600 hover:shadow-lg hover:shadow-purple-500/50' 
-                        : 'bg-gradient-to-r from-orange-500 to-pink-500 text-white hover:shadow-lg hover:shadow-orange-500/50'
-                    }`}>
-                      View Demo
-                    </button>
-                    <button className={`px-6 py-3 border rounded-lg font-semibold transition-all duration-300 ${
-                      isDark 
-                        ? 'border-gray-600 hover:border-purple-500 hover:text-purple-400' 
-                        : 'border-orange-400 hover:border-orange-600 hover:text-orange-600'
-                    }`}>
-                      Code
-                    </button>
-                  </div>
                 </div>
               </div>
             ))}
@@ -517,106 +502,162 @@ export default function Portfolio() {
 
       {/* Contact Section */}
       <section id="contact" className="relative min-h-screen flex items-center justify-center px-6 py-20 z-10">
-        <div className="max-w-4xl w-full">
-          <div className="text-center mb-16">
-            <h2 className={`text-6xl font-bold mb-4 bg-clip-text text-transparent ${
-              isDark 
-                ? 'bg-gradient-to-r from-blue-400 to-purple-500' 
-                : 'bg-gradient-to-r from-orange-500 to-pink-600'
-            }`}>
-              Let's Connect
-            </h2>
-            <div className={`w-24 h-1 mx-auto rounded-full ${
-              isDark 
-                ? 'bg-gradient-to-r from-blue-500 to-purple-500' 
-                : 'bg-gradient-to-r from-orange-500 to-pink-500'
-            }`}></div>
-            <p className={`text-xl mt-6 max-w-2xl mx-auto ${
-              isDark ? 'text-gray-300' : 'text-gray-700'
-            }`}>
-              Have a project in mind? Let's work together to create something amazing.
-            </p>
-          </div>
+        <div className="max-w-6xl w-full">
+          <div className="grid md:grid-cols-2 gap-16 items-start">
+            {/* Left Side - Contact Info */}
+            <div>
+              <h2 className={`text-5xl font-bold mb-4 ${
+                isDark ? 'text-white' : 'text-gray-900'
+              }`}>
+                Let's discuss your project
+              </h2>
+              <p className={`text-lg mb-12 ${
+                isDark ? 'text-gray-400' : 'text-gray-600'
+              }`}>
+                Always happy to help! Don't hesitate to contact me if you need anything.
+              </p>
 
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
-            {[
-              { icon: '📧', title: 'Email', value: 'hello@arlene.dev' },
-              { icon: '📱', title: 'Phone', value: '+1 (555) 123-4567' },
-              { icon: '📍', title: 'Location', value: 'San Francisco, CA' },
-            ].map((item) => (
-              <div 
-                key={item.title}
-                className={`backdrop-blur-sm border rounded-xl p-6 text-center transition-all duration-300 hover:scale-105 ${
-                  isDark 
-                    ? 'bg-[#0D1117]/50 border-[#1a1f2e] hover:border-purple-500/50' 
-                    : 'bg-white/70 border-orange-200 hover:border-orange-400'
-                }`}
-              >
-                <div className="text-4xl mb-3">{item.icon}</div>
-                <div className={`text-sm mb-1 ${
-                  isDark ? 'text-gray-500' : 'text-gray-600'
-                }`}>{item.title}</div>
-                <div className={`font-medium ${
-                  isDark ? 'text-gray-300' : 'text-gray-700'
-                }`}>{item.value}</div>
+              {/* Contact Details */}
+              <div className="space-y-6 mb-12">
+                <div className="flex items-center gap-4">
+                  <div className={`w-14 h-14 rounded-lg flex items-center justify-center ${
+                    isDark ? 'bg-purple-600' : 'bg-purple-500'
+                  }`}>
+                    <span className="text-2xl">📍</span>
+                  </div>
+                  <div>
+                    <div className={`text-sm ${isDark ? 'text-gray-500' : 'text-gray-600'}`}>
+                      My location
+                    </div>
+                    <div className={`font-semibold ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                      Kigali, Rwanda
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-4">
+                  <div className={`w-14 h-14 rounded-lg flex items-center justify-center ${
+                    isDark ? 'bg-purple-600' : 'bg-purple-500'
+                  }`}>
+                    <span className="text-2xl">📧</span>
+                  </div>
+                  <div>
+                    <div className={`text-sm ${isDark ? 'text-gray-500' : 'text-gray-600'}`}>
+                      My email
+                    </div>
+                    <div className={`font-semibold ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                      laulanyumbayire@gmail.com
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-4">
+                  <div className={`w-14 h-14 rounded-lg flex items-center justify-center ${
+                    isDark ? 'bg-purple-600' : 'bg-purple-500'
+                  }`}>
+                    <span className="text-2xl">📱</span>
+                  </div>
+                  <div>
+                    <div className={`text-sm ${isDark ? 'text-gray-500' : 'text-gray-600'}`}>
+                      Call me now
+                    </div>
+                    <div className={`font-semibold ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                      +250 794971311
+                    </div>
+                  </div>
+                </div>
               </div>
-            ))}
-          </div>
-          
-          <form className={`space-y-6 backdrop-blur-sm border rounded-2xl p-8 ${
-            isDark 
-              ? 'bg-[#0D1117]/50 border-[#1a1f2e]' 
-              : 'bg-white/70 border-orange-200'
-          }`}>
-            <div className="grid md:grid-cols-2 gap-6">
-              <input
-                type="text"
-                placeholder="Your Name"
-                className={`w-full border rounded-xl px-5 py-4 focus:outline-none focus:ring-2 transition-all ${
-                  isDark 
-                    ? 'bg-[#161B22] border-[#1a1f2e] focus:border-purple-500 focus:ring-purple-500/20' 
-                    : 'bg-white border-orange-200 focus:border-orange-500 focus:ring-orange-500/20'
-                }`}
-              />
-              <input
-                type="email"
-                placeholder="Your Email"
-                className={`w-full border rounded-xl px-5 py-4 focus:outline-none focus:ring-2 transition-all ${
-                  isDark 
-                    ? 'bg-[#161B22] border-[#1a1f2e] focus:border-purple-500 focus:ring-purple-500/20' 
-                    : 'bg-white border-orange-200 focus:border-orange-500 focus:ring-orange-500/20'
-                }`}
-              />
+
+              {/* Social Icons */}
+              <div className="flex gap-4">
+                {[
+                  { icon: '📷', label: 'Instagram' },
+                  { icon: '💼', label: 'LinkedIn' },
+                  { icon: '🌐', label: 'GitHub' },
+                  { icon: '✖️', label: 'Twitter' }
+                ].map((social) => (
+                  <a 
+                    key={social.label}
+                    href="#"
+                    className={`w-12 h-12 rounded-lg border-2 flex items-center justify-center transition-all duration-300 hover:scale-110 ${
+                      isDark 
+                        ? 'border-purple-500 hover:bg-purple-500/20' 
+                        : 'border-purple-400 hover:bg-purple-400/20'
+                    }`}
+                  >
+                    <span className="text-xl">{social.icon}</span>
+                  </a>
+                ))}
+              </div>
             </div>
-            <input
-              type="text"
-              placeholder="Subject"
-              className={`w-full border rounded-xl px-5 py-4 focus:outline-none focus:ring-2 transition-all ${
-                isDark 
-                  ? 'bg-[#161B22] border-[#1a1f2e] focus:border-purple-500 focus:ring-purple-500/20' 
-                  : 'bg-white border-orange-200 focus:border-orange-500 focus:ring-orange-500/20'
-              }`}
-            />
-            <textarea
-              placeholder="Your Message"
-              rows={6}
-              className={`w-full border rounded-xl px-5 py-4 focus:outline-none focus:ring-2 transition-all resize-none ${
-                isDark 
-                  ? 'bg-[#161B22] border-[#1a1f2e] focus:border-purple-500 focus:ring-purple-500/20' 
-                  : 'bg-white border-orange-200 focus:border-orange-500 focus:ring-orange-500/20'
-              }`}
-            ></textarea>
-            <button
-              type="submit"
-              className={`w-full font-semibold py-4 px-6 rounded-xl transition-all duration-300 hover:scale-[1.02] ${
-                isDark 
-                  ? 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white hover:shadow-lg hover:shadow-purple-500/50' 
-                  : 'bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white hover:shadow-lg hover:shadow-orange-500/50'
-              }`}
-            >
-              Send Message
-            </button>
-          </form>
+
+            {/* Right Side - Contact Form */}
+            <div>
+              <p className={`text-lg mb-6 ${
+                isDark ? 'text-gray-400' : 'text-gray-600'
+              }`}>
+                I'm excited to hear from you! Fill out the form below and let's start a conversation.
+              </p>
+
+              <form className="space-y-5">
+                <input
+                  type="text"
+                  placeholder="Name*"
+                  className={`w-full border-b-2 px-0 py-3 bg-transparent focus:outline-none transition-all ${
+                    isDark 
+                      ? 'border-gray-700 focus:border-purple-500 text-white placeholder-gray-500' 
+                      : 'border-gray-300 focus:border-purple-500 text-gray-900 placeholder-gray-400'
+                  }`}
+                />
+                <input
+                  type="email"
+                  placeholder="Email*"
+                  className={`w-full border-b-2 px-0 py-3 bg-transparent focus:outline-none transition-all ${
+                    isDark 
+                      ? 'border-gray-700 focus:border-purple-500 text-white placeholder-gray-500' 
+                      : 'border-gray-300 focus:border-purple-500 text-gray-900 placeholder-gray-400'
+                  }`}
+                />
+                <input
+                  type="text"
+                  placeholder="Location*"
+                  className={`w-full border-b-2 px-0 py-3 bg-transparent focus:outline-none transition-all ${
+                    isDark 
+                      ? 'border-gray-700 focus:border-purple-500 text-white placeholder-gray-500' 
+                      : 'border-gray-300 focus:border-purple-500 text-gray-900 placeholder-gray-400'
+                  }`}
+                />
+                <input
+                  type="text"
+                  placeholder="Subject*"
+                  className={`w-full border-b-2 px-0 py-3 bg-transparent focus:outline-none transition-all ${
+                    isDark 
+                      ? 'border-gray-700 focus:border-purple-500 text-white placeholder-gray-500' 
+                      : 'border-gray-300 focus:border-purple-500 text-gray-900 placeholder-gray-400'
+                  }`}
+                />
+                <textarea
+                  placeholder="Message*"
+                  rows={4}
+                  className={`w-full border-b-2 px-0 py-3 bg-transparent focus:outline-none transition-all resize-none ${
+                    isDark 
+                      ? 'border-gray-700 focus:border-purple-500 text-white placeholder-gray-500' 
+                      : 'border-gray-300 focus:border-purple-500 text-gray-900 placeholder-gray-400'
+                  }`}
+                ></textarea>
+                <button
+                  type="submit"
+                  className={`px-8 py-3 rounded-md font-semibold transition-all duration-300 hover:scale-105 flex items-center gap-2 ${
+                    isDark 
+                      ? 'bg-linear-to-r from-purple-600 to-pink-600 text-white hover:shadow-lg hover:shadow-purple-500/50' 
+                      : 'bg-linear-to-r from-purple-500 to-pink-500 text-white hover:shadow-lg hover:shadow-purple-400/50'
+                  }`}
+                >
+                  Submit <span>✉️</span>
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
       </section>
 

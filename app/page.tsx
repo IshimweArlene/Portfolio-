@@ -1,5 +1,5 @@
 ﻿'use client';
-
+import { BsInstagram, BsGithub, BsLinkedin, BsTwitter } from 'react-icons/bs';
 import { useEffect, useState } from 'react';
 
 export default function Portfolio() {
@@ -7,6 +7,9 @@ export default function Portfolio() {
   const [isVisible, setIsVisible] = useState(false);
   const [isDark, setIsDark] = useState(true);
   const [typedText, setTypedText] = useState('');
+  const [aboutVisible, setAboutVisible] = useState(false);
+  const [projectsVisible, setProjectsVisible] = useState(false);
+  const [contactVisible, setContactVisible] = useState(false);
   
   const phrases = ['Back end development', 'Front end development', 'UI/UX Design', 'Mobile Development'];
   const [phraseIndex, setPhraseIndex] = useState(0);
@@ -33,6 +36,32 @@ export default function Portfolio() {
             setActiveSection(section);
             break;
           }
+        }
+      }
+
+      // Trigger animations when sections come into view
+      const aboutSection = document.getElementById('about');
+      const projectsSection = document.getElementById('projects');
+      const contactSection = document.getElementById('contact');
+      
+      if (aboutSection) {
+        const aboutTop = aboutSection.getBoundingClientRect().top;
+        if (aboutTop < window.innerHeight * 0.75) {
+          setAboutVisible(true);
+        }
+      }
+      
+      if (projectsSection) {
+        const projectsTop = projectsSection.getBoundingClientRect().top;
+        if (projectsTop < window.innerHeight * 0.75) {
+          setProjectsVisible(true);
+        }
+      }
+      
+      if (contactSection) {
+        const contactTop = contactSection.getBoundingClientRect().top;
+        if (contactTop < window.innerHeight * 0.75) {
+          setContactVisible(true);
         }
       }
     };
@@ -294,7 +323,9 @@ export default function Portfolio() {
 
       {/* About Section */}
       <section id="about" className="relative min-h-screen flex items-center justify-center px-6 py-4 z-10">
-        <div className="max-w-6xl w-full">
+        <div className={`max-w-6xl w-full transition-all duration-1000 ${
+          aboutVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+        }`}>
           <div className="text-center mb-16">
             <h2 className={`text-6xl font-bold mb-4 bg-clip-text text-transparent ${
               isDark 
@@ -327,10 +358,10 @@ export default function Portfolio() {
                 {/* Social Icons */}
                 <div className="flex gap-4 justify-center mt-6">
                   {[
-                    { icon: '📷', label: 'Instagram' },
-                    { icon: '💼', label: 'LinkedIn' },
-                    { icon: '🌐', label: 'GitHub' },
-                    { icon: '✖️', label: 'Twitter' }
+                    { icon: <BsInstagram />, label: 'Instagram' },
+                    { icon: <BsLinkedin />, label: 'LinkedIn' },
+                    { icon: <BsGithub />, label: 'GitHub' },
+                    { icon: <BsTwitter />, label: 'Twitter' }
                   ].map((social) => (
                     <a 
                       key={social.label}
@@ -364,7 +395,7 @@ export default function Portfolio() {
                 </p>
 
                 <div className="flex gap-4">
-                  <button className={`px-8 py-3 rounded-md font-semibold transition-all duration-300 hover:scale-105 ${
+                  <button className={`w-32 h-12 rounded-md font-semibold transition-all duration-300 hover:scale-105 ${
                     isDark 
                       ? 'bg-linear-to-r from-purple-600 to-pink-600 text-white hover:shadow-lg hover:shadow-purple-500/50' 
                       : 'bg-linear-to-r from-purple-500 to-pink-500 text-white hover:shadow-lg hover:shadow-purple-400/50'
@@ -373,7 +404,7 @@ export default function Portfolio() {
                   </button>
                   <button 
                     onClick={() => scrollToSection('contact')}
-                    className={`px-8 py-3 rounded-md border-2 font-semibold transition-all duration-300 hover:scale-105 animate-float ${
+                    className={`w-32 h-12 rounded-md border-2 font-semibold transition-all duration-300 hover:scale-105 animate-float ${
                       isDark 
                         ? 'border-gray-600 hover:border-purple-500 hover:text-purple-400' 
                         : 'border-purple-400 hover:border-purple-600 hover:text-purple-600'
@@ -390,7 +421,9 @@ export default function Portfolio() {
 
       {/* Projects Section */}
       <section id="projects" className="relative min-h-screen flex items-center justify-center px-6 py-20 z-10">
-        <div className="max-w-7xl w-full">
+        <div className={`max-w-7xl w-full transition-all duration-1000 ${
+          projectsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+        }`}>
           <div className="text-center mb-16">
             <h2 className={`text-6xl font-bold mb-4 bg-clip-text text-transparent ${
               isDark 
@@ -467,7 +500,7 @@ export default function Portfolio() {
                     </div>
                   </div>
                   {/* Hover overlay icons */}
-                  <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                  <div className="absolute inset-0 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
                     <a href="#" className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all ${
                       isDark ? 'bg-purple-600 hover:bg-purple-700' : 'bg-purple-500 hover:bg-purple-600'
                     }`}>
@@ -502,7 +535,9 @@ export default function Portfolio() {
 
       {/* Contact Section */}
       <section id="contact" className="relative min-h-screen flex items-center justify-center px-6 py-20 z-10">
-        <div className="max-w-6xl w-full">
+        <div className={`max-w-6xl w-full transition-all duration-1000 ${
+          contactVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+        }`}>
           <div className="grid md:grid-cols-2 gap-16 items-start">
             {/* Left Side - Contact Info */}
             <div>
@@ -546,7 +581,7 @@ export default function Portfolio() {
                       My email
                     </div>
                     <div className={`font-semibold ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                      laulanyumbayire@gmail.com
+                      ishimwearlene74@gmail.com
                     </div>
                   </div>
                 </div>
@@ -562,7 +597,7 @@ export default function Portfolio() {
                       Call me now
                     </div>
                     <div className={`font-semibold ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                      +250 794971311
+                      +250 798 973 574
                     </div>
                   </div>
                 </div>
@@ -647,7 +682,7 @@ export default function Portfolio() {
                 ></textarea>
                 <button
                   type="submit"
-                  className={`px-8 py-3 rounded-md font-semibold transition-all duration-300 hover:scale-105 flex items-center gap-2 ${
+                  className={`w-32 h-12 rounded-md font-semibold transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 ${
                     isDark 
                       ? 'bg-linear-to-r from-purple-600 to-pink-600 text-white hover:shadow-lg hover:shadow-purple-500/50' 
                       : 'bg-linear-to-r from-purple-500 to-pink-500 text-white hover:shadow-lg hover:shadow-purple-400/50'

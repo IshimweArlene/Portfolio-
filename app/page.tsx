@@ -757,12 +757,12 @@ export default function Portfolio() {
       </section>
 
       {/* Footer */}
-      <footer className={`relative border-t py-8 z-10 transition-colors duration-500 ${
+      <footer className={`relative border-t h-64 flex items-center z-10 transition-colors duration-500 ${
         isDark 
           ? 'bg-[#0B0F1A] border-[#1a1f2e]' 
           : 'bg-white/50 border-orange-200'
       }`}>
-        <div className="max-w-7xl mx-auto px-8">
+        <div className="max-w-7xl mx-auto px-8 w-full">
           <div className="flex justify-between items-center">
             {/* Left - Logo/Name */}
             <div className="flex items-center gap-3">

@@ -357,24 +357,54 @@ export default function Portfolio() {
                 
                 {/* Social Icons */}
                 <div className="flex gap-4 justify-center mt-6">
-                  {[
-                    { icon: <BsInstagram />, label: 'Instagram' },
-                    { icon: <BsLinkedin />, label: 'LinkedIn' },
-                    { icon: <BsGithub />, label: 'GitHub' },
-                    { icon: <BsTwitter />, label: 'Twitter' }
-                  ].map((social) => (
-                    <a 
-                      key={social.label}
-                      href="#"
-                      className={`w-12 h-12 rounded-lg border-2 flex items-center justify-center transition-all duration-300 hover:scale-110 ${
-                        isDark 
-                          ? 'border-purple-500 hover:bg-purple-500/20' 
-                          : 'border-purple-400 hover:bg-purple-400/20'
-                      }`}
-                    >
-                      <span className="text-xl">{social.icon}</span>
-                    </a>
-                  ))}
+                  <a 
+                    href="https://www.instagram.com/_arl_ene"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`w-12 h-12 rounded-lg border-2 flex items-center justify-center transition-all duration-300 hover:scale-110 ${
+                      isDark 
+                        ? 'border-purple-500 hover:bg-purple-500/20' 
+                        : 'border-purple-400 hover:bg-purple-400/20'
+                    }`}
+                  >
+                    <span className="text-xl"><BsInstagram /></span>
+                  </a>
+                  <a 
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`w-12 h-12 rounded-lg border-2 flex items-center justify-center transition-all duration-300 hover:scale-110 ${
+                      isDark 
+                        ? 'border-purple-500 hover:bg-purple-500/20' 
+                        : 'border-purple-400 hover:bg-purple-400/20'
+                    }`}
+                  >
+                    <span className="text-xl"><BsLinkedin /></span>
+                  </a>
+                  <a 
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`w-12 h-12 rounded-lg border-2 flex items-center justify-center transition-all duration-300 hover:scale-110 ${
+                      isDark 
+                        ? 'border-purple-500 hover:bg-purple-500/20' 
+                        : 'border-purple-400 hover:bg-purple-400/20'
+                    }`}
+                  >
+                    <span className="text-xl"><BsGithub /></span>
+                  </a>
+                  <a 
+                    href="https://github.com/IshimweArlene"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`w-12 h-12 rounded-lg border-2 flex items-center justify-center transition-all duration-300 hover:scale-110 ${
+                      isDark 
+                        ? 'border-purple-500 hover:bg-purple-500/20' 
+                        : 'border-purple-400 hover:bg-purple-400/20'
+                    }`}
+                  >
+                    <span className="text-xl"><BsTwitter /></span>
+                  </a>
                 </div>
               </div>
             </div>
@@ -504,12 +534,12 @@ export default function Portfolio() {
                     <a href="#" className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all ${
                       isDark ? 'bg-purple-600 hover:bg-purple-700' : 'bg-purple-500 hover:bg-purple-600'
                     }`}>
-                      <span className="text-white text-xl">🔗</span>
+                      <span className="text-white text-xl"><BsGithub/></span>
                     </a>
                     <a href="#" className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all ${
                       isDark ? 'bg-purple-600 hover:bg-purple-700' : 'bg-purple-500 hover:bg-purple-600'
                     }`}>
-                      <span className="text-white text-xl">💻</span>
+                      <span className="text-white text-xl">🔗</span>
                     </a>
                   </div>
                 </div>
@@ -605,24 +635,54 @@ export default function Portfolio() {
 
               {/* Social Icons */}
               <div className="flex gap-4">
-                {[
-                  { icon: '📷', label: 'Instagram' },
-                  { icon: '💼', label: 'LinkedIn' },
-                  { icon: '🌐', label: 'GitHub' },
-                  { icon: '✖️', label: 'Twitter' }
-                ].map((social) => (
-                  <a 
-                    key={social.label}
-                    href="#"
-                    className={`w-12 h-12 rounded-lg border-2 flex items-center justify-center transition-all duration-300 hover:scale-110 ${
-                      isDark 
-                        ? 'border-purple-500 hover:bg-purple-500/20' 
-                        : 'border-purple-400 hover:bg-purple-400/20'
-                    }`}
-                  >
-                    <span className="text-xl">{social.icon}</span>
-                  </a>
-                ))}
+                <a 
+                  href="https://www.instagram.com/_arl_ene"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`w-12 h-12 rounded-lg border-2 flex items-center justify-center transition-all duration-300 hover:scale-110 ${
+                    isDark 
+                      ? 'border-purple-500 hover:bg-purple-500/20' 
+                      : 'border-purple-400 hover:bg-purple-400/20'
+                  }`}
+                >
+                  <span className="text-xl"><BsInstagram /></span>
+                </a>
+                <a 
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`w-12 h-12 rounded-lg border-2 flex items-center justify-center transition-all duration-300 hover:scale-110 ${
+                    isDark 
+                      ? 'border-purple-500 hover:bg-purple-500/20' 
+                      : 'border-purple-400 hover:bg-purple-400/20'
+                  }`}
+                >
+                  <span className="text-xl"><BsLinkedin /></span>
+                </a>
+                <a 
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`w-12 h-12 rounded-lg border-2 flex items-center justify-center transition-all duration-300 hover:scale-110 ${
+                    isDark 
+                      ? 'border-purple-500 hover:bg-purple-500/20' 
+                      : 'border-purple-400 hover:bg-purple-400/20'
+                  }`}
+                >
+                  <span className="text-xl"><BsGithub /></span>
+                </a>
+                <a 
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`w-12 h-12 rounded-lg border-2 flex items-center justify-center transition-all duration-300 hover:scale-110 ${
+                    isDark 
+                      ? 'border-purple-500 hover:bg-purple-500/20' 
+                      : 'border-purple-400 hover:bg-purple-400/20'
+                  }`}
+                >
+                  <span className="text-xl"><BsTwitter /></span>
+                </a>
               </div>
             </div>
 
@@ -697,31 +757,46 @@ export default function Portfolio() {
       </section>
 
       {/* Footer */}
-      <footer className={`relative border-t py-12 text-center z-10 transition-colors duration-500 ${
+      <footer className={`relative border-t py-8 z-10 transition-colors duration-500 ${
         isDark 
           ? 'bg-[#0B0F1A] border-[#1a1f2e]' 
           : 'bg-white/50 border-orange-200'
       }`}>
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="flex justify-center gap-6 mb-6">
-            {['GitHub', 'LinkedIn', 'Twitter', 'Instagram'].map((social) => (
-              <a 
-                key={social}
-                href="#"
-                className={`w-12 h-12 rounded-full border flex items-center justify-center transition-all duration-300 hover:scale-110 ${
-                  isDark 
-                    ? 'border-gray-700 hover:border-purple-500 hover:text-purple-400' 
-                    : 'border-orange-300 hover:border-orange-500 hover:text-orange-600'
-                }`}
-              >
-                {social[0]}
-              </a>
-            ))}
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="flex justify-between items-center">
+            {/* Left - Logo/Name */}
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-linear-to-br from-purple-400 to-pink-500 flex items-center justify-center text-white font-bold text-lg">
+                A
+              </div>
+              <span className={`text-lg font-semibold ${
+                isDark ? 'text-white' : 'text-gray-900'
+              }`}>Arlene</span>
+            </div>
+
+            {/* Center - Navigation Links */}
+            <ul className="flex gap-8 items-center">
+              {['home', 'about', 'projects', 'services', 'contact'].map((section) => (
+                <li key={section}>
+                  <button
+                    onClick={() => scrollToSection(section)}
+                    className={`capitalize transition-all duration-300 ${
+                      isDark 
+                        ? 'text-gray-400 hover:text-white' 
+                        : 'text-gray-600 hover:text-gray-900'
+                    }`}
+                  >
+                    {section === 'home' ? 'Home' : section === 'about' ? 'About' : section === 'projects' ? 'Projects' : section === 'services' ? 'Services' : 'Contacts'}
+                  </button>
+                </li>
+              ))}
+            </ul>
+
+            {/* Right - Copyright */}
+            <p className={isDark ? 'text-gray-400' : 'text-gray-600'}>
+              Copyright © 2024 Arlene
+            </p>
           </div>
-          <p className={`mb-2 ${
-            isDark ? 'text-gray-500' : 'text-gray-600'
-          }`}>Built with ❤️ using Next.js & Tailwind CSS</p>
-          <p className={isDark ? 'text-gray-600' : 'text-gray-500'}>&copy; 2024 Arlene ISHIMWE. All rights reserved.</p>
         </div>
       </footer>
     </div>

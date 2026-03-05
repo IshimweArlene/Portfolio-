@@ -214,6 +214,7 @@ export default function Portfolio() {
       </nav>
 
       {/* Home Section */}
+      {/* SECTION COLOR: Dark mode = bg-[#0B0F1A] (dark blue-gray) | Light mode = bg-orange-50 (light orange) */}
       <section id="home" className={`relative min-h-screen flex items-center justify-center px-8 z-10 pt-20 overflow-hidden ${
         isDark ? 'bg-[#0B0F1A]' : 'bg-orange-50'
       }`}>
@@ -333,6 +334,7 @@ export default function Portfolio() {
       </section>
 
       {/* About Section */}
+      {/* SECTION COLOR: Dark mode = bg-[#0D1117] (slightly lighter dark) | Light mode = bg-pink-50 (light pink) */}
       <section id="about" className={`relative min-h-screen flex items-center justify-center px-6 py-4 z-10 ${
         isDark ? 'bg-[#0D1117]' : 'bg-pink-50'
       }`}>
@@ -463,6 +465,7 @@ export default function Portfolio() {
       </section>
 
       {/* Projects Section */}
+      {/* SECTION COLOR: Dark mode = bg-[#0B0F1A] (dark blue-gray) | Light mode = bg-purple-50 (light purple) */}
       <section id="projects" className={`relative min-h-screen flex items-center justify-center px-6 py-20 z-10 ${
         isDark ? 'bg-[#0B0F1A]' : 'bg-purple-50'
       }`}>
@@ -579,6 +582,7 @@ export default function Portfolio() {
       </section>
 
       {/* Services Section */}
+      {/* SECTION COLOR: Dark mode = bg-[#0D1117] (slightly lighter dark) | Light mode = bg-blue-50 (light blue) */}
       <section id="services" className={`relative min-h-screen flex items-center justify-center px-6 py-20 z-10 ${
         isDark ? 'bg-[#0D1117]' : 'bg-blue-50'
       }`}>
@@ -673,6 +677,7 @@ export default function Portfolio() {
       </section>
 
       {/* Contact Section */}
+      {/* SECTION COLOR: Dark mode = bg-[#0B0F1A] (dark blue-gray) | Light mode = bg-green-50 (light green) */}
       <section id="contact" className={`relative min-h-screen flex items-center justify-center px-6 py-20 z-10 ${
         isDark ? 'bg-[#0B0F1A]' : 'bg-green-50'
       }`}>

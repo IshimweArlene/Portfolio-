@@ -121,14 +121,14 @@ export default function Portfolio() {
     <div className={`min-h-screen overflow-x-hidden transition-colors duration-500 ${
       isDark 
         ? 'bg-[#0B0F1A] text-gray-100' 
-        : 'bg-linear-to-br from-orange-50 via-pink-50 to-purple-50 text-gray-900'
+        : 'bg-linear-to-r from-purple-50 to-purple-300 text-gray-900'
     }`}>
       {/* Animated Background */}
       <div className="fixed inset-0 z-0">
         <div className={`absolute inset-0 transition-all duration-500 ${
           isDark 
-            ? 'bg-linear-to-br from-blue-900/10 via-purple-900/10 to-pink-900/10' 
-            : 'bg-linear-to-br from-orange-200/20 via-pink-200/20 to-purple-200/20'
+            ? 'bg-linear-to-r from-blue-900/10 via-purple-900/10 to-pink-900/10' 
+            : 'bg-linear-to-r from-orange-200/20 via-pink-200/20 to-purple-200/20'
         }`}></div>
       </div>
 
@@ -214,7 +214,9 @@ export default function Portfolio() {
       </nav>
 
       {/* Home Section */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center px-8 z-10 pt-20 overflow-hidden">
+      <section id="home" className={`relative min-h-screen flex items-center justify-center px-8 z-10 pt-20 overflow-hidden ${
+        isDark ? 'bg-[#0B0F1A]' : 'bg-orange-50'
+      }`}>
         {/* Full Page Grid Background */}
         <div className="absolute inset-0 w-full h-full opacity-10 pointer-events-none">
           <svg width="100%" height="100%" className={isDark ? 'text-purple-500' : 'text-purple-400'}>
@@ -331,7 +333,9 @@ export default function Portfolio() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="relative min-h-screen flex items-center justify-center px-6 py-4 z-10">
+      <section id="about" className={`relative min-h-screen flex items-center justify-center px-6 py-4 z-10 ${
+        isDark ? 'bg-[#0D1117]' : 'bg-pink-50'
+      }`}>
         <div className={`max-w-6xl w-full transition-all duration-1000 ${
           aboutVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
         }`}>
@@ -459,7 +463,9 @@ export default function Portfolio() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="relative min-h-screen flex items-center justify-center px-6 py-20 z-10">
+      <section id="projects" className={`relative min-h-screen flex items-center justify-center px-6 py-20 z-10 ${
+        isDark ? 'bg-[#0B0F1A]' : 'bg-purple-50'
+      }`}>
         <div className={`max-w-7xl w-full transition-all duration-1000 ${
           projectsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
         }`}>
@@ -573,7 +579,9 @@ export default function Portfolio() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="relative min-h-screen flex items-center justify-center px-6 py-20 z-10">
+      <section id="services" className={`relative min-h-screen flex items-center justify-center px-6 py-20 z-10 ${
+        isDark ? 'bg-[#0D1117]' : 'bg-blue-50'
+      }`}>
         <div className={`max-w-7xl w-full transition-all duration-1000 ${
           servicesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
         }`}>
@@ -665,7 +673,9 @@ export default function Portfolio() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="relative min-h-screen flex items-center justify-center px-6 py-20 z-10">
+      <section id="contact" className={`relative min-h-screen flex items-center justify-center px-6 py-20 z-10 ${
+        isDark ? 'bg-[#0B0F1A]' : 'bg-green-50'
+      }`}>
         <div className={`max-w-6xl w-full transition-all duration-1000 ${
           contactVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
         }`}>

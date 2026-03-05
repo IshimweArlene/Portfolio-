@@ -9,6 +9,7 @@ export default function Portfolio() {
   const [typedText, setTypedText] = useState('');
   const [aboutVisible, setAboutVisible] = useState(false);
   const [projectsVisible, setProjectsVisible] = useState(false);
+  const [servicesVisible, setServicesVisible] = useState(false);
   const [contactVisible, setContactVisible] = useState(false);
   
   const phrases = ['Back end development', 'Front end development', 'UI/UX Design', 'Mobile Development'];
@@ -25,7 +26,7 @@ export default function Portfolio() {
     }
     
     const handleScroll = () => {
-      const sections = ['home', 'about', 'projects', 'contact'];
+      const sections = ['home', 'about', 'projects', 'services', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -42,6 +43,7 @@ export default function Portfolio() {
       // Trigger animations when sections come into view
       const aboutSection = document.getElementById('about');
       const projectsSection = document.getElementById('projects');
+      const servicesSection = document.getElementById('services');
       const contactSection = document.getElementById('contact');
       
       if (aboutSection) {
@@ -55,6 +57,13 @@ export default function Portfolio() {
         const projectsTop = projectsSection.getBoundingClientRect().top;
         if (projectsTop < window.innerHeight * 0.75) {
           setProjectsVisible(true);
+        }
+      }
+      
+      if (servicesSection) {
+        const servicesTop = servicesSection.getBoundingClientRect().top;
+        if (servicesTop < window.innerHeight * 0.75) {
+          setServicesVisible(true);
         }
       }
       
@@ -557,6 +566,98 @@ export default function Portfolio() {
                     {project.desc}
                   </p>
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section id="services" className="relative min-h-screen flex items-center justify-center px-6 py-20 z-10">
+        <div className={`max-w-7xl w-full transition-all duration-1000 ${
+          servicesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+        }`}>
+          <div className="text-center mb-16">
+            <h2 className={`text-6xl font-bold mb-4 bg-clip-text text-transparent ${
+              isDark 
+                ? 'bg-linear-to-r from-blue-400 to-purple-500' 
+                : 'bg-linear-to-r from-orange-500 to-pink-600'
+            }`}>
+              Services
+            </h2>
+            <div className={`w-24 h-1 mx-auto rounded-full ${
+              isDark 
+                ? 'bg-linear-to-r from-blue-500 to-purple-500' 
+                : 'bg-linear-to-r from-orange-500 to-pink-500'
+            }`}></div>
+            <p className={`mt-6 text-lg ${
+              isDark ? 'text-gray-400' : 'text-gray-600'
+            }`}>What I can do for you</p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              { 
+                title: 'Web Development', 
+                desc: 'Building responsive and modern web applications using the latest technologies like React, Next.js, and Tailwind CSS. From concept to deployment, I create seamless user experiences.',
+                icon: '💻',
+                color: isDark ? 'from-blue-500 to-cyan-500' : 'from-blue-400 to-cyan-400'
+              },
+              { 
+                title: 'Mobile Development', 
+                desc: 'Creating cross-platform mobile applications with React Native and Flutter. Delivering native-like performance and beautiful interfaces for iOS and Android.',
+                icon: '📱',
+                color: isDark ? 'from-purple-500 to-pink-500' : 'from-purple-400 to-pink-400'
+              },
+              { 
+                title: 'UI/UX Design', 
+                desc: 'Designing intuitive and visually appealing user interfaces. Focusing on user experience, accessibility, and modern design principles to create engaging digital products.',
+                icon: '🎨',
+                color: isDark ? 'from-orange-500 to-red-500' : 'from-orange-400 to-red-400'
+              },
+              { 
+                title: 'Backend Development', 
+                desc: 'Developing robust server-side applications and APIs using Node.js, Express, and databases like MongoDB and PostgreSQL. Ensuring scalability and security.',
+                icon: '⚙️',
+                color: isDark ? 'from-green-500 to-teal-500' : 'from-green-400 to-teal-400'
+              },
+              { 
+                title: 'Database Design', 
+                desc: 'Architecting efficient database structures and optimizing queries for performance. Experience with both SQL and NoSQL databases for various use cases.',
+                icon: '🗄️',
+                color: isDark ? 'from-indigo-500 to-purple-500' : 'from-indigo-400 to-purple-400'
+              },
+              { 
+                title: 'Consulting & Support', 
+                desc: 'Providing technical consultation, code reviews, and ongoing support for your projects. Helping teams adopt best practices and improve their development workflow.',
+                icon: '🤝',
+                color: isDark ? 'from-pink-500 to-rose-500' : 'from-pink-400 to-rose-400'
+              },
+            ].map((service, index) => (
+              <div 
+                key={index} 
+                className={`group relative backdrop-blur-sm border rounded-2xl p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl ${
+                  isDark 
+                    ? 'bg-[#0D1117]/80 border-[#1a1f2e] hover:border-purple-500/50 hover:shadow-purple-500/20' 
+                    : 'bg-white/90 border-gray-200 hover:border-purple-400 hover:shadow-purple-500/20'
+                }`}
+              >
+                {/* Icon */}
+                <div className={`w-16 h-16 rounded-xl bg-linear-to-br ${service.color} flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-all duration-500`}>
+                  {service.icon}
+                </div>
+                
+                {/* Service Info */}
+                <h3 className={`text-2xl font-bold mb-4 ${
+                  isDark ? 'text-white' : 'text-gray-900'
+                }`}>
+                  {service.title}
+                </h3>
+                <p className={`text-sm leading-relaxed ${
+                  isDark ? 'text-gray-400' : 'text-gray-600'
+                }`}>
+                  {service.desc}
+                </p>
               </div>
             ))}
           </div>

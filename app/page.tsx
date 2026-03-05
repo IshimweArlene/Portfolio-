@@ -356,7 +356,7 @@ export default function Portfolio() {
                 </div>
                 
                 {/* Social Icons */}
-                <div className="flex gap-4 justify-center mt-6">
+                <div className="flex gap-4 justify-center mt-12">
                   <a 
                     href="https://www.instagram.com/_arl_ene"
                     target="_blank"

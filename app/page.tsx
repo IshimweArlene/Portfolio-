@@ -212,7 +212,7 @@ export default function Portfolio() {
               <li>
                 <button
                   onClick={() => scrollToSection('contact')}
-                  className={`rounded-md px-6 py-2 font-semibold transition-all duration-300 ${
+                  className={`rounded-md w-32 h-12 font-semibold transition-all duration-300 ${
                     isDark 
                       ? 'bg-linear-to-r from-blue-600 to-purple-600 text-white hover:shadow-lg hover:shadow-purple-500/50' 
                       : 'bg-linear-to-r from-purple-500 to-pink-500 text-white hover:shadow-lg hover:shadow-purple-400/50'

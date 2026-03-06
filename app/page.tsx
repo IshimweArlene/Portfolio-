@@ -170,18 +170,20 @@ export default function Portfolio() {
       </button>
 
       {/* Navigation */}
-      <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+      <nav className={`fixed z-50 transition-all duration-300 ${
         isScrolled 
-          ? `backdrop-blur-md border-b ${isDark ? 'bg-[#0B0F1A]/95 border-[#1a1f2e]/50' : 'bg-white/95 border-purple-200/50'}`
-          : `${isDark ? 'bg-[#0B0F1A]/80' : 'bg-white/80'} backdrop-blur-sm`
+          ? `top-4 left-1/2 -translate-x-1/2 w-[430px] rounded-2xl backdrop-blur-md border ${isDark ? 'bg-[#0B0F1A]/95 border-[#1a1f2e]/50' : 'bg-white/95 border-purple-200/50'}`
+          : `top-0 left-0 right-0 w-full ${isDark ? 'bg-[#0B0F1A]/80' : 'bg-white/80'} backdrop-blur-sm`
       }`}>
-        <div className={`mx-auto px-8 transition-all duration-500 ${
-          isScrolled ? 'max-w-5xl py-5' : 'max-w-7xl py-8'
+        <div className={`mx-auto px-8 transition-all duration-300 ${
+          isScrolled ? 'py-6' : 'max-w-7xl py-8'
         }`}>
-          <div className="flex justify-between items-center">
+          <div className={`flex items-center transition-all duration-300 ${
+            isScrolled ? 'justify-center' : 'justify-between'
+          }`}>
             {/* Logo - Hidden when scrolled */}
-            <div className={`flex items-center gap-3 transition-all duration-500 ${
-              isScrolled ? 'opacity-0 w-0 overflow-hidden' : 'opacity-100'
+            <div className={`flex items-center gap-3 transition-all duration-300 ${
+              isScrolled ? 'opacity-0 absolute pointer-events-none' : 'opacity-100'
             }`}>
               <div className="w-12 h-12 rounded-full bg-linear-to-br from-purple-400 to-pink-500 flex items-center justify-center text-white font-bold text-xl">
                 A
@@ -192,9 +194,7 @@ export default function Portfolio() {
             </div>
 
             {/* Navigation Links - Centered when scrolled */}
-            <ul className={`flex gap-8 items-center transition-all duration-500 ${
-              isScrolled ? 'mx-auto' : ''
-            }`}>
+            <ul className={`flex gap-8 items-center transition-all duration-300`}>
               {['home', 'about', 'projects', 'services', 'contact'].map((section) => (
                 <li key={section}>
                   <button
@@ -212,8 +212,8 @@ export default function Portfolio() {
             </ul>
 
             {/* Contact Button - Hidden when scrolled */}
-            <div className={`transition-all duration-500 ${
-              isScrolled ? 'opacity-0 w-0 overflow-hidden' : 'opacity-100'
+            <div className={`transition-all duration-300 ${
+              isScrolled ? 'opacity-0 absolute pointer-events-none' : 'opacity-100'
             }`}>
               <button
                 onClick={() => scrollToSection('contact')}

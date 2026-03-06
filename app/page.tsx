@@ -125,7 +125,7 @@ export default function Portfolio() {
     <div className={`min-h-screen overflow-x-hidden transition-colors duration-500 ${
       isDark 
         ? 'bg-[#0B0F1A] text-gray-100' 
-        : 'bg-linear-to-r from-purple-50 to-purple-300 text-gray-900'
+        : 'bg-linear-to-br from-purple-50 to-purple-300 text-gray-900'
     }`}>
       {/* Animated Background */}
       <div className="fixed inset-0 z-0">
@@ -195,7 +195,7 @@ export default function Portfolio() {
             <ul className={`flex gap-8 items-center transition-all duration-500 ${
               isScrolled ? 'mx-auto' : ''
             }`}>
-              {['home', 'about', 'projects', 'services'].map((section) => (
+              {['home', 'about', 'projects', 'services', 'contact'].map((section) => (
                 <li key={section}>
                   <button
                     onClick={() => scrollToSection(section)}
@@ -205,28 +205,27 @@ export default function Portfolio() {
                         : (isDark ? 'text-gray-300 hover:text-white' : 'text-gray-700 hover:text-purple-600')
                     }`}
                   >
-                    {section === 'home' ? 'Home' : section === 'about' ? 'About' : section === 'projects' ? 'Projects' : 'Services'}
+                    {section === 'home' ? 'Home' : section === 'about' ? 'About' : section === 'projects' ? 'Projects' : section === 'services' ? 'Services' : 'Contact'}
                   </button>
                 </li>
               ))}
-              <li>
-                <button
-                  onClick={() => scrollToSection('contact')}
-                  className={`rounded-md w-32 h-12 font-semibold transition-all duration-300 ${
-                    isDark 
-                      ? 'bg-linear-to-r from-blue-600 to-purple-600 text-white hover:shadow-lg hover:shadow-purple-500/50' 
-                      : 'bg-linear-to-r from-purple-500 to-pink-500 text-white hover:shadow-lg hover:shadow-purple-400/50'
-                  }`}
-                >
-                  Contact
-                </button>
-              </li>
             </ul>
 
-            {/* Empty div for spacing when not scrolled */}
+            {/* Contact Button - Hidden when scrolled */}
             <div className={`transition-all duration-500 ${
-              isScrolled ? 'opacity-0 w-0 overflow-hidden' : 'opacity-0 w-20'
-            }`}></div>
+              isScrolled ? 'opacity-0 w-0 overflow-hidden' : 'opacity-100'
+            }`}>
+              <button
+                onClick={() => scrollToSection('contact')}
+                className={`rounded-md w-32 h-12 font-semibold transition-all duration-300 ${
+                  isDark 
+                    ? 'bg-linear-to-r from-blue-600 to-purple-600 text-white hover:shadow-lg hover:shadow-purple-500/50' 
+                    : 'bg-linear-to-r from-purple-500 to-pink-500 text-white hover:shadow-lg hover:shadow-purple-400/50'
+                }`}
+              >
+                Contact
+              </button>
+            </div>
           </div>
         </div>
       </nav>

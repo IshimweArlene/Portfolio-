@@ -11,6 +11,7 @@ export default function Portfolio() {
   const [projectsVisible, setProjectsVisible] = useState(false);
   const [servicesVisible, setServicesVisible] = useState(false);
   const [contactVisible, setContactVisible] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   
   const phrases = ['Back end development', 'Front end development', 'UI/UX Design', 'Mobile Development'];
   const [phraseIndex, setPhraseIndex] = useState(0);
@@ -28,6 +29,9 @@ export default function Portfolio() {
     const handleScroll = () => {
       const sections = ['home', 'about', 'projects', 'services', 'contact'];
       const scrollPosition = window.scrollY + 100;
+
+      // Check if scrolled
+      setIsScrolled(window.scrollY > 50);
 
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -166,14 +170,19 @@ export default function Portfolio() {
       </button>
 
       {/* Navigation */}
-      <nav className={`fixed top-0 w-full backdrop-blur-md z-50 border-b transition-colors duration-500 ${
-        isDark 
-          ? 'bg-[#0B0F1A]/80 border-[#1a1f2e]/50' 
-          : 'bg-white/80 border-purple-200/50'
+      <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+        isScrolled 
+          ? `backdrop-blur-md border-b ${isDark ? 'bg-[#0B0F1A]/80 border-[#1a1f2e]/50' : 'bg-white/80 border-purple-200/50'}`
+          : 'bg-transparent'
       }`}>
-        <div className="max-w-7xl mx-auto px-8 py-5">
+        <div className={`mx-auto px-8 transition-all duration-500 ${
+          isScrolled ? 'max-w-5xl py-5' : 'max-w-7xl py-8'
+        }`}>
           <div className="flex justify-between items-center">
-            <div className="flex items-center gap-3">
+            {/* Logo - Hidden when scrolled */}
+            <div className={`flex items-center gap-3 transition-all duration-500 ${
+              isScrolled ? 'opacity-0 w-0 overflow-hidden' : 'opacity-100'
+            }`}>
               <div className="w-12 h-12 rounded-full bg-linear-to-br from-purple-400 to-pink-500 flex items-center justify-center text-white font-bold text-xl">
                 A
               </div>
@@ -181,7 +190,11 @@ export default function Portfolio() {
                 isDark ? 'text-white' : 'text-gray-900'
               }`}>Arlene</span>
             </div>
-            <ul className="flex gap-8 items-center">
+
+            {/* Navigation Links - Centered when scrolled */}
+            <ul className={`flex gap-8 items-center transition-all duration-500 ${
+              isScrolled ? 'mx-auto' : ''
+            }`}>
               {['home', 'about', 'projects', 'services'].map((section) => (
                 <li key={section}>
                   <button
@@ -199,7 +212,7 @@ export default function Portfolio() {
               <li>
                 <button
                   onClick={() => scrollToSection('contact')}
-                  className={`rounded-md w-32 h-12 font-semibold transition-all duration-300 ${
+                  className={`rounded-md px-6 py-2 font-semibold transition-all duration-300 ${
                     isDark 
                       ? 'bg-linear-to-r from-blue-600 to-purple-600 text-white hover:shadow-lg hover:shadow-purple-500/50' 
                       : 'bg-linear-to-r from-purple-500 to-pink-500 text-white hover:shadow-lg hover:shadow-purple-400/50'
@@ -209,6 +222,11 @@ export default function Portfolio() {
                 </button>
               </li>
             </ul>
+
+            {/* Empty div for spacing when not scrolled */}
+            <div className={`transition-all duration-500 ${
+              isScrolled ? 'opacity-0 w-0 overflow-hidden' : 'opacity-0 w-20'
+            }`}></div>
           </div>
         </div>
       </nav>

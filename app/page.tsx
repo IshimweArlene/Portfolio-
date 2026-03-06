@@ -172,8 +172,8 @@ export default function Portfolio() {
       {/* Navigation */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${
         isScrolled 
-          ? `backdrop-blur-md border-b ${isDark ? 'bg-[#0B0F1A]/80 border-[#1a1f2e]/50' : 'bg-white/80 border-purple-200/50'}`
-          : 'bg-transparent'
+          ? `backdrop-blur-md border-b ${isDark ? 'bg-[#0B0F1A]/95 border-[#1a1f2e]/50' : 'bg-white/95 border-purple-200/50'}`
+          : `${isDark ? 'bg-[#0B0F1A]/80' : 'bg-white/80'} backdrop-blur-sm`
       }`}>
         <div className={`mx-auto px-8 transition-all duration-500 ${
           isScrolled ? 'max-w-5xl py-5' : 'max-w-7xl py-8'

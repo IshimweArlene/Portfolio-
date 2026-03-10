@@ -1,4 +1,7 @@
 import { NextResponse } from 'next/server';
+import { Resend } from 'resend';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
   try {
@@ -22,43 +25,6 @@ export async function POST(request: Request) {
       );
     }
 
-    // Prepare email content for Arlene
-    const emailToArlene = `
-New Contact Form Submission
-
-Name: ${name}
-Email: ${email}
-Location: ${location}
-Subject: ${subject}
-
-Message:
-${message}
-    `.trim();
-
-    // Prepare confirmation email for user
-    const confirmationEmail = `
-Hi ${name},
-
-Thank you for reaching out! I've received your message and will get back to you as soon as possible.
-
-Here's a copy of what you sent:
-
-Subject: ${subject}
-Message: ${message}
-
-Best regards,
-Arlene ISHIMWE
-    `.trim();
-
-    // For now, we'll log both emails
-    console.log('Email to Arlene (ishimwearlene74@gmail.com):', emailToArlene);
-    console.log('Confirmation email to user:', email, confirmationEmail);
-
-    // TODO: Integrate with Resend email service
-    // Once you set up Resend, uncomment this code:
-    /*
-    const resend = new Resend(process.env.RESEND_API_KEY);
-    
     // Send email to Arlene
     await resend.emails.send({
       from: 'Portfolio <onboarding@resend.dev>',
@@ -111,7 +77,6 @@ Arlene ISHIMWE
         </div>
       `
     });
-    */
 
     return NextResponse.json(
       { 

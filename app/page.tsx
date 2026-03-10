@@ -170,20 +170,20 @@ export default function Portfolio() {
       </button>
 
       {/* Navigation */}
-      <nav className={`fixed z-50 transition-all duration-300 ${
+      <nav className={`fixed z-50 ${
         isScrolled 
-          ? `top-4 left-1/2 -translate-x-1/2 w-[430px] rounded-2xl backdrop-blur-md border ${isDark ? 'bg-[#0B0F1A]/95 border-[#1a1f2e]/50' : 'bg-white/95 border-purple-200/50'}`
-          : `top-0 left-0 right-0 w-full ${isDark ? 'bg-[#0B0F1A]/80' : 'bg-white/80'} backdrop-blur-sm`
+          ? `top-4 left-1/2 -translate-x-1/2 w-[430px] rounded-2xl backdrop-blur-md border ${isDark ? 'bg-black/95 border-gray-800' : 'bg-white/95 border-gray-200'}`
+          : `top-0 left-0 right-0 w-full ${isDark ? 'bg-black/80' : 'bg-white/80'} backdrop-blur-sm`
       }`}>
-        <div className={`mx-auto px-8 transition-all duration-300 ${
+        <div className={`mx-auto px-8 ${
           isScrolled ? 'py-6' : 'max-w-7xl py-8'
         }`}>
-          <div className={`flex items-center transition-all duration-300 ${
+          <div className={`flex items-center ${
             isScrolled ? 'justify-center' : 'justify-between'
           }`}>
             {/* Logo - Hidden when scrolled */}
-            <div className={`flex items-center gap-3 transition-all duration-300 ${
-              isScrolled ? 'opacity-0 absolute pointer-events-none' : 'opacity-100'
+            <div className={`flex items-center gap-3 ${
+              isScrolled ? 'hidden' : ''
             }`}>
               <div className="w-12 h-12 rounded-full bg-linear-to-br from-purple-400 to-pink-500 flex items-center justify-center text-white font-bold text-xl">
                 A
@@ -194,7 +194,7 @@ export default function Portfolio() {
             </div>
 
             {/* Navigation Links - Centered when scrolled */}
-            <ul className={`flex gap-8 items-center transition-all duration-300`}>
+            <ul className={`flex gap-8 items-center`}>
               {['home', 'about', 'projects', 'services', 'contact'].map((section) => (
                 <li key={section}>
                   <button
@@ -212,8 +212,8 @@ export default function Portfolio() {
             </ul>
 
             {/* Contact Button - Hidden when scrolled */}
-            <div className={`transition-all duration-300 ${
-              isScrolled ? 'opacity-0 absolute pointer-events-none' : 'opacity-100'
+            <div className={`${
+              isScrolled ? 'hidden' : ''
             }`}>
               <button
                 onClick={() => scrollToSection('contact')}
@@ -231,9 +231,9 @@ export default function Portfolio() {
       </nav>
 
       {/* Home Section */}
-      {/* SECTION COLOR: Dark mode = bg-[#0B0F1A] (dark blue-gray) | Light mode = bg-orange-50 (light orange) */}
+      {/* SECTION COLOR: Dark mode = bg-black | Light mode = bg-white */}
       <section id="home" className={`relative min-h-screen flex items-center justify-center px-8 z-10 pt-20 overflow-hidden ${
-        isDark ? 'bg-[#0B0F1A]' : 'bg-orange-50'
+        isDark ? 'bg-black' : 'bg-white'
       }`}>
         {/* Full Page Grid Background */}
         <div className="absolute inset-0 w-full h-full opacity-10 pointer-events-none">
@@ -351,25 +351,25 @@ export default function Portfolio() {
       </section>
 
       {/* About Section */}
-      {/* SECTION COLOR: Dark mode = bg-[#0D1117] (slightly lighter dark) | Light mode = bg-pink-50 (light pink) */}
+      {/* SECTION COLOR: Dark mode = bg-black | Light mode = bg-white */}
       <section id="about" className={`relative min-h-screen flex items-center justify-center px-6 py-4 z-10 ${
-        isDark ? 'bg-[#0D1117]' : 'bg-pink-50'
+        isDark ? 'bg-black' : 'bg-white'
       }`}>
         <div className={`max-w-6xl w-full transition-all duration-1000 ${
           aboutVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
         }`}>
           <div className="text-center mb-16">
-            <h2 className={`text-6xl font-bold mb-4 bg-clip-text text-transparent ${
+            <h2 className={`text-6xl font-bold mb-4 ${
               isDark 
-                ? 'bg-linear-to-r from-blue-400 to-purple-500' 
-                : 'bg-linear-to-r from-orange-500 to-pink-600'
+                ? 'text-purple-400' 
+                : 'text-purple-600'
             }`}>
               About Me
             </h2>
             <div className={`w-24 h-1 mx-auto rounded-full mb-12 ${
               isDark 
-                ? 'bg-linear-to-r from-blue-500 to-purple-500' 
-                : 'bg-linear-to-r from-orange-500 to-pink-500'
+                ? 'bg-purple-500' 
+                : 'bg-purple-500'
             }`}></div>
           </div>
           
@@ -482,25 +482,25 @@ export default function Portfolio() {
       </section>
 
       {/* Projects Section */}
-      {/* SECTION COLOR: Dark mode = bg-[#0B0F1A] (dark blue-gray) | Light mode = bg-purple-50 (light purple) */}
+      {/* SECTION COLOR: Dark mode = bg-black | Light mode = bg-white */}
       <section id="projects" className={`relative min-h-screen flex items-center justify-center px-6 py-20 z-10 ${
-        isDark ? 'bg-[#0B0F1A]' : 'bg-purple-50'
+        isDark ? 'bg-black' : 'bg-white'
       }`}>
         <div className={`max-w-7xl w-full transition-all duration-1000 ${
           projectsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
         }`}>
           <div className="text-center mb-16">
-            <h2 className={`text-6xl font-bold mb-4 bg-clip-text text-transparent ${
+            <h2 className={`text-6xl font-bold mb-4 ${
               isDark 
-                ? 'bg-linear-to-r from-blue-400 to-purple-500' 
-                : 'bg-linear-to-r from-orange-500 to-pink-600'
+                ? 'text-purple-400' 
+                : 'text-purple-600'
             }`}>
               Featured Projects
             </h2>
             <div className={`w-24 h-1 mx-auto rounded-full ${
               isDark 
-                ? 'bg-linear-to-r from-blue-500 to-purple-500' 
-                : 'bg-linear-to-r from-orange-500 to-pink-500'
+                ? 'bg-purple-500' 
+                : 'bg-purple-500'
             }`}></div>
             <p className={`mt-6 text-lg ${
               isDark ? 'text-gray-400' : 'text-gray-600'
@@ -599,25 +599,25 @@ export default function Portfolio() {
       </section>
 
       {/* Services Section */}
-      {/* SECTION COLOR: Dark mode = bg-[#0D1117] (slightly lighter dark) | Light mode = bg-blue-50 (light blue) */}
+      {/* SECTION COLOR: Dark mode = bg-black | Light mode = bg-white */}
       <section id="services" className={`relative min-h-screen flex items-center justify-center px-6 py-20 z-10 ${
-        isDark ? 'bg-[#0D1117]' : 'bg-blue-50'
+        isDark ? 'bg-black' : 'bg-white'
       }`}>
         <div className={`max-w-7xl w-full transition-all duration-1000 ${
           servicesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
         }`}>
           <div className="text-center mb-16">
-            <h2 className={`text-6xl font-bold mb-4 bg-clip-text text-transparent ${
+            <h2 className={`text-6xl font-bold mb-4 ${
               isDark 
-                ? 'bg-linear-to-r from-blue-400 to-purple-500' 
-                : 'bg-linear-to-r from-orange-500 to-pink-600'
+                ? 'text-purple-400' 
+                : 'text-purple-600'
             }`}>
               Services
             </h2>
             <div className={`w-24 h-1 mx-auto rounded-full ${
               isDark 
-                ? 'bg-linear-to-r from-blue-500 to-purple-500' 
-                : 'bg-linear-to-r from-orange-500 to-pink-500'
+                ? 'bg-purple-500' 
+                : 'bg-purple-500'
             }`}></div>
             <p className={`mt-6 text-lg ${
               isDark ? 'text-gray-400' : 'text-gray-600'
@@ -694,9 +694,9 @@ export default function Portfolio() {
       </section>
 
       {/* Contact Section */}
-      {/* SECTION COLOR: Dark mode = bg-[#0B0F1A] (dark blue-gray) | Light mode = bg-green-50 (light green) */}
+      {/* SECTION COLOR: Dark mode = bg-black | Light mode = bg-white */}
       <section id="contact" className={`relative min-h-screen flex items-center justify-center px-6 py-20 z-10 ${
-        isDark ? 'bg-[#0B0F1A]' : 'bg-green-50'
+        isDark ? 'bg-black' : 'bg-white'
       }`}>
         <div className={`max-w-6xl w-full transition-all duration-1000 ${
           contactVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
@@ -892,8 +892,8 @@ export default function Portfolio() {
       {/* Footer */}
       <footer className={`relative border-t h-64 flex items-center z-10 transition-colors duration-500 ${
         isDark 
-          ? 'bg-[#0B0F1A] border-[#1a1f2e]' 
-          : 'bg-white/50 border-orange-200'
+          ? 'bg-black border-gray-800' 
+          : 'bg-white border-gray-200'
       }`}>
         <div className="max-w-7xl mx-auto px-8 w-full">
           <div className="flex justify-between items-center">

@@ -13,6 +13,17 @@ export default function Portfolio() {
   const [contactVisible, setContactVisible] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   
+  // Form state
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    location: '',
+    subject: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  
   const phrases = ['Back end development', 'Front end development', 'UI/UX Design', 'Mobile Development'];
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -119,6 +130,63 @@ export default function Portfolio() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Validate all fields are filled
+    if (!formData.name || !formData.email || !formData.location || !formData.subject || !formData.message) {
+      setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus('idle'), 3000);
+      return;
+    }
+    
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          location: '',
+          subject: '',
+          message: ''
+        });
+        
+        // Reset success message after 5 seconds
+        setTimeout(() => setSubmitStatus('idle'), 5000);
+      } else {
+        throw new Error(data.error || 'Failed to send message');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -821,10 +889,14 @@ export default function Portfolio() {
                 I'm excited to hear from you! Fill out the form below and let's start a conversation.
               </p>
 
-              <form className="space-y-5">
+              <form onSubmit={handleSubmit} className="space-y-5">
                 <input
                   type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
                   placeholder="Name*"
+                  required
                   className={`w-full border-b-2 px-0 py-3 bg-transparent focus:outline-none transition-all ${
                     isDark 
                       ? 'border-gray-700 focus:border-purple-500 text-white placeholder-gray-500' 
@@ -833,7 +905,11 @@ export default function Portfolio() {
                 />
                 <input
                   type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
                   placeholder="Email*"
+                  required
                   className={`w-full border-b-2 px-0 py-3 bg-transparent focus:outline-none transition-all ${
                     isDark 
                       ? 'border-gray-700 focus:border-purple-500 text-white placeholder-gray-500' 
@@ -842,7 +918,11 @@ export default function Portfolio() {
                 />
                 <input
                   type="text"
+                  name="location"
+                  value={formData.location}
+                  onChange={handleInputChange}
                   placeholder="Location*"
+                  required
                   className={`w-full border-b-2 px-0 py-3 bg-transparent focus:outline-none transition-all ${
                     isDark 
                       ? 'border-gray-700 focus:border-purple-500 text-white placeholder-gray-500' 
@@ -851,7 +931,11 @@ export default function Portfolio() {
                 />
                 <input
                   type="text"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleInputChange}
                   placeholder="Subject*"
+                  required
                   className={`w-full border-b-2 px-0 py-3 bg-transparent focus:outline-none transition-all ${
                     isDark 
                       ? 'border-gray-700 focus:border-purple-500 text-white placeholder-gray-500' 
@@ -859,23 +943,45 @@ export default function Portfolio() {
                   }`}
                 />
                 <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
                   placeholder="Message*"
                   rows={4}
+                  required
                   className={`w-full border-b-2 px-0 py-3 bg-transparent focus:outline-none transition-all resize-none ${
                     isDark 
                       ? 'border-gray-700 focus:border-purple-500 text-white placeholder-gray-500' 
                       : 'border-gray-300 focus:border-purple-500 text-gray-900 placeholder-gray-400'
                   }`}
                 ></textarea>
+                
+                {/* Status Messages */}
+                {submitStatus === 'success' && (
+                  <div className="text-green-500 text-sm">
+                    ✓ Message sent successfully!
+                  </div>
+                )}
+                {submitStatus === 'error' && (
+                  <div className="text-red-500 text-sm">
+                    ✗ Failed to send message. Please try again.
+                  </div>
+                )}
+                
                 <button
                   type="submit"
+                  disabled={isSubmitting}
                   className={`w-32 h-12 rounded-md font-semibold transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 ${
+                    isSubmitting 
+                      ? 'opacity-50 cursor-not-allowed' 
+                      : ''
+                  } ${
                     isDark 
                       ? 'bg-linear-to-r from-purple-600 to-pink-600 text-white hover:shadow-lg hover:shadow-purple-500/50' 
                       : 'bg-linear-to-r from-purple-500 to-pink-500 text-white hover:shadow-lg hover:shadow-purple-400/50'
                   }`}
                 >
-                  Submit <span>✉️</span>
+                  {isSubmitting ? 'Sending...' : 'Submit'} <span>✉️</span>
                 </button>
               </form>
             </div>

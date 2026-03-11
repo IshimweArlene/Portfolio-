@@ -262,12 +262,9 @@ export default function Portfolio() {
             isScrolled ? 'justify-center' : 'justify-between'
           }`}>
             {/* Logo - Hidden when scrolled */}
-            <div className={`flex items-center gap-3 ${
+            <div className={`flex items-center ${
               isScrolled ? 'hidden' : ''
             }`}>
-              <div className="w-12 h-12 rounded-full bg-linear-to-br from-purple-400 to-pink-500 flex items-center justify-center text-white font-bold text-xl">
-                A
-              </div>
               <span className={`text-xl font-semibold ${
                 isDark ? 'text-white' : 'text-gray-900'
               }`}>Arlene</span>
@@ -460,11 +457,7 @@ export default function Portfolio() {
                 <div className={`w-80 h-80 rounded-full overflow-hidden border-4 ${
                   isDark ? 'border-purple-500' : 'border-purple-400'
                 }`}>
-                  <div className={`w-full h-full flex items-center justify-center text-9xl ${
-                    isDark ? 'bg-linear-to-br from-purple-900/40 to-blue-900/40' : 'bg-linear-to-br from-purple-200 to-pink-200'
-                  }`}>
-                    👨‍💻
-                  </div>
+                  <img src="/Arlene.jpg" alt="Arlene ISHIMWE" className="w-full h-full object-cover" />
                 </div>
                 
                 {/* Social Icons */}
@@ -494,7 +487,7 @@ export default function Portfolio() {
                     <span className="text-xl"><BsLinkedin /></span>
                   </a>
                   <a 
-                    href="#"
+                    href="https://github.com/IshimweArlene"
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`w-12 h-12 rounded-lg border-2 flex items-center justify-center transition-all duration-300 hover:scale-110 ${
@@ -506,7 +499,7 @@ export default function Portfolio() {
                     <span className="text-xl"><BsGithub /></span>
                   </a>
                   <a 
-                    href="https://github.com/IshimweArlene"
+                    href="#"
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`w-12 h-12 rounded-lg border-2 flex items-center justify-center transition-all duration-300 hover:scale-110 ${
@@ -590,9 +583,10 @@ export default function Portfolio() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               { 
-                title: 'Diagnoss', 
-                desc: 'Diagnosis web app streamlines medical operations with features like appointment scheduling, patient records, billing, prescriptions, and inventory, enhancing efficiency and care quality.',
-                icon: '🏥',
+                title: 'LankaStay', 
+                desc: 'A modern hotel booking platform that helps you forget busy work and start your next vacation. Browse beautiful accommodations, book instantly, and plan your perfect getaway.',
+                icon: '🏖️',
+                image: '/lankastay.png',
                 color: isDark ? 'from-teal-500 to-cyan-500' : 'from-teal-400 to-cyan-400'
               },
               { 
@@ -636,14 +630,29 @@ export default function Portfolio() {
               >
                 {/* Project Image/Preview */}
                 <div className={`h-48 bg-linear-to-br ${project.color} relative overflow-hidden`}>
-                  <div className={`absolute inset-0 transition-all duration-500 ${
-                    isDark ? 'bg-black/30 group-hover:bg-black/10' : 'bg-white/20 group-hover:bg-white/5'
-                  }`}></div>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-7xl opacity-80 group-hover:scale-110 transition-all duration-500">
-                      {project.icon}
-                    </div>
-                  </div>
+                  {project.image ? (
+                    <>
+                      <img 
+                        src={project.image} 
+                        alt={project.title}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className={`absolute inset-0 transition-all duration-500 ${
+                        isDark ? 'bg-black/40 group-hover:bg-black/20' : 'bg-white/30 group-hover:bg-white/10'
+                      }`}></div>
+                    </>
+                  ) : (
+                    <>
+                      <div className={`absolute inset-0 transition-all duration-500 ${
+                        isDark ? 'bg-black/30 group-hover:bg-black/10' : 'bg-white/20 group-hover:bg-white/5'
+                      }`}></div>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="text-7xl opacity-80 group-hover:scale-110 transition-all duration-500">
+                          {project.icon}
+                        </div>
+                      </div>
+                    </>
+                  )}
                   {/* Hover overlay icons */}
                   <div className="absolute inset-0 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
                     <a href="#" className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all ${
@@ -798,7 +807,9 @@ export default function Portfolio() {
               {/* Contact Details */}
               <div className="space-y-6 mb-12">
                 <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-lg flex items-center justify-center bg-white">
+                  <div className={`w-14 h-14 rounded-lg flex items-center justify-center ${
+                    isDark ? 'bg-black border border-gray-800' : 'bg-white'
+                  }`}>
                     <span className="text-2xl">📍</span>
                   </div>
                   <div>
@@ -812,7 +823,9 @@ export default function Portfolio() {
                 </div>
 
                 <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-lg flex items-center justify-center bg-white">
+                  <div className={`w-14 h-14 rounded-lg flex items-center justify-center ${
+                    isDark ? 'bg-black border border-gray-800' : 'bg-white'
+                  }`}>
                     <span className="text-2xl">📧</span>
                   </div>
                   <div>
@@ -826,7 +839,9 @@ export default function Portfolio() {
                 </div>
 
                 <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-lg flex items-center justify-center bg-white">
+                  <div className={`w-14 h-14 rounded-lg flex items-center justify-center ${
+                    isDark ? 'bg-black border border-gray-800' : 'bg-white'
+                  }`}>
                     <span className="text-2xl">📱</span>
                   </div>
                   <div>
@@ -867,7 +882,7 @@ export default function Portfolio() {
                   <span className="text-xl"><BsLinkedin /></span>
                 </a>
                 <a 
-                  href="#"
+                  href="https://github.com/IshimweArlene"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`w-12 h-12 rounded-lg border-2 flex items-center justify-center transition-all duration-300 hover:scale-110 ${
@@ -1011,8 +1026,8 @@ export default function Portfolio() {
           <div className="flex justify-between items-center">
             {/* Left - Logo/Name */}
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-linear-to-br from-purple-400 to-pink-500 flex items-center justify-center text-white font-bold text-lg">
-                A
+              <div className="w-10 h-10 rounded-full overflow-hidden bg-linear-to-br from-purple-400 to-pink-500 flex items-center justify-center">
+                <img src="/Arlene.jpg" alt="Arlene" className="w-full h-full object-cover" />
               </div>
               <span className={`text-lg font-semibold ${
                 isDark ? 'text-white' : 'text-gray-900'

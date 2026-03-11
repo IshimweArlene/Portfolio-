@@ -143,8 +143,12 @@ export default function Portfolio() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    console.log('🚀 Form submit triggered');
+    console.log('📝 Form data:', formData);
+    
     // Validate all fields are filled
     if (!formData.name || !formData.email || !formData.location || !formData.subject || !formData.message) {
+      console.error('❌ Validation failed: Missing fields');
       setSubmitStatus('error');
       setTimeout(() => setSubmitStatus('idle'), 3000);
       return;
@@ -154,6 +158,8 @@ export default function Portfolio() {
     setSubmitStatus('idle');
 
     try {
+      console.log('📤 Sending request to /api/contact...');
+      
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
@@ -162,9 +168,13 @@ export default function Portfolio() {
         body: JSON.stringify(formData),
       });
 
+      console.log('📥 Response status:', response.status);
+      
       const data = await response.json();
+      console.log('📥 Response data:', data);
 
       if (response.ok) {
+        console.log('✅ Success!');
         setSubmitStatus('success');
         // Reset form
         setFormData({
@@ -178,14 +188,16 @@ export default function Portfolio() {
         // Reset success message after 5 seconds
         setTimeout(() => setSubmitStatus('idle'), 5000);
       } else {
+        console.error('❌ Server error:', data.error);
         throw new Error(data.error || 'Failed to send message');
       }
     } catch (error) {
-      console.error('Form submission error:', error);
+      console.error('❌ Form submission error:', error);
       setSubmitStatus('error');
       setTimeout(() => setSubmitStatus('idle'), 5000);
     } finally {
       setIsSubmitting(false);
+      console.log('🏁 Form submission complete');
     }
   };
 

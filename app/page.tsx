@@ -962,8 +962,8 @@ export default function Portfolio() {
                   required
                   className={`w-full h-12 border-b px-0 py-3 bg-transparent focus:outline-none transition-all ${
                     isDark 
-                      ? 'border-gray-700 focus:border-black text-white placeholder-gray-500' 
-                      : 'border-gray-300 focus:border-white text-gray-900 placeholder-gray-400'
+                      ? 'border-gray-700 focus:border-purple-700 text-white placeholder-gray-500' 
+                      : 'border-gray-300 focus:border-purple-700 text-gray-900 placeholder-gray-400'
                   }`}style={{paddingTop: '16px'}}
                 />
 
@@ -976,8 +976,8 @@ export default function Portfolio() {
                   required
                   className={`w-full h-12 border-b px-0 py-3 bg-transparent focus:outline-none transition-all ${
                     isDark 
-                      ? 'border-gray-700 focus:border-black text-white placeholder-gray-500' 
-                      : 'border-gray-300 focus:border-white text-gray-900 placeholder-gray-400'
+                      ? 'border-gray-700 focus:border-purple-700 text-white placeholder-gray-500' 
+                      : 'border-gray-300 focus:border-purple-700 text-gray-900 placeholder-gray-400'
                   }`}style={{paddingTop: '16px'}}
                 />
 
@@ -990,8 +990,8 @@ export default function Portfolio() {
                   required
                   className={`w-full h-12 border-b px-0 py-3 bg-transparent focus:outline-none transition-all ${
                     isDark 
-                      ? 'border-gray-700 focus:border-black text-white placeholder-gray-500' 
-                      : 'border-gray-300 focus:border-white text-gray-900 placeholder-gray-400'
+                      ? 'border-gray-700 focus:border-purple-700 text-white placeholder-gray-500' 
+                      : 'border-gray-300 focus:border-purple-700 text-gray-900 placeholder-gray-400'
                   }`}style={{paddingTop: '16px'}}
                 />
 
@@ -1004,8 +1004,8 @@ export default function Portfolio() {
                   required
                   className={`w-full h-12 border-b px-0 py-3 bg-transparent focus:outline-none transition-all ${
                     isDark 
-                      ? 'border-gray-700 focus:border-black text-white placeholder-gray-500' 
-                      : 'border-gray-300 focus:border-white text-gray-900 placeholder-gray-400'
+                      ? 'border-gray-700 focus:border-purple-700 text-white placeholder-gray-500' 
+                      : 'border-gray-300 focus:border-purple-700 text-gray-900 placeholder-gray-400'
                   }`}style={{paddingTop: '16px'}}
                 />
 
@@ -1018,8 +1018,8 @@ export default function Portfolio() {
                   required
                   className={`w-full border-b px-0 py-3 bg-transparent focus:outline-none transition-all resize-none h-12 ${
                     isDark 
-                      ? 'border-gray-700 focus:border-black text-white placeholder-gray-500' 
-                      : 'border-gray-300 focus:border-white text-gray-900 placeholder-gray-400'
+                      ? 'border-gray-700 focus:border-purple-700 text-white placeholder-gray-500' 
+                      : 'border-gray-300 focus:border-purple-700 text-gray-900 placeholder-gray-400'
                   }`}style={{paddingTop: '16px', marginBottom: '16px'}}
                 ></textarea>
 

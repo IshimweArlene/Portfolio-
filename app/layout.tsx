@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Arlene ISHIMWE - Full Stack Developer Portfolio",
+  title: "Arlene ISHIMWE - Full Stack Developer",
   description: "Full Stack Developer & Creative Technologist specializing in React, Next.js, and modern web technologies. View my projects and get in touch.",
 };
 

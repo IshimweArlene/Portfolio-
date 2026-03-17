@@ -258,10 +258,7 @@ export default function Portfolio() {
           <div className="flex items-center justify-between w-full">
             {/* Logo - Hidden when scrolled */}
             <div className={`flex items-center ${isScrolled ? 'hidden' : ''}`}>
-              <div className="w-10 h-10 rounded-full overflow-hidden bg-purple-500 flex items-center justify-center">
-                <img src="/photos/Arlene.jpg" alt="Arlene" className="w-full h-full object-cover" />
-              </div>
-              <span className={`ml-3 text-xl font-semibold ${isDark ? 'text-white' : 'text-gray-900'}`}>Arlene</span>
+              <span className={`text-xl font-semibold ${isDark ? 'text-white' : 'text-gray-900'}`}>Arlene</span>
             </div>
 
             {/* Navigation Links - Centered */}
@@ -611,42 +608,54 @@ export default function Portfolio() {
                 desc: 'A modern hotel booking platform that helps you forget busy work and start your next vacation. Browse beautiful accommodations, book instantly, and plan your perfect getaway.',
                 icon: '🏖️',
                 image: '/photos/lankastay.png',
-                color: isDark ? 'from-teal-500 to-cyan-500' : 'from-teal-400 to-cyan-400'
+                color: isDark ? 'from-teal-500 to-cyan-500' : 'from-teal-400 to-cyan-400',
+                github: 'https://github.com/IshimweArlene/LankaStay',
+                live: 'https://lanka-stay.vercel.app/'
               },
               { 
                 title: 'RestoNest Hub', 
                 desc: 'A comprehensive hotel reservation platform that streamlines the booking experience for travelers. Features real-time availability, secure payment processing, and intuitive search filters to help guests find their perfect accommodation effortlessly.',
                 icon: '🏨',
                 image: '/photos/restonest.png',
-                color: isDark ? 'from-orange-500 to-red-500' : 'from-orange-400 to-red-400'
+                color: isDark ? 'from-orange-500 to-red-500' : 'from-orange-400 to-red-400',
+                github: 'https://github.com/IshimweArlene/Resto-nest',
+                live: 'https://resto-nest.vercel.app/'
               },
               { 
                 title: 'Fintask', 
                 desc: 'A comprehensive financial management application that helps users track expenses, manage budgets, and achieve their financial goals. Features intuitive dashboards, expense categorization, and detailed financial analytics.',
-                icon: '�',
+                icon: '💰',
                 image: '/photos/Fintask.png',
-                color: isDark ? 'from-green-500 to-emerald-500' : 'from-green-400 to-emerald-400'
+                color: isDark ? 'from-green-500 to-emerald-500' : 'from-green-400 to-emerald-400',
+                github: 'https://github.com/IshimweArlene/FinTask',
+                live: '#'
               },
               { 
                 title: 'FitHub', 
                 desc: 'A modern fitness tracking platform that empowers users to monitor their workouts, set fitness goals, and track progress. Includes workout planning, progress analytics, and community features for motivation.',
-                icon: '💪',
+                icon: '�',
                 image: '/photos/Fithub.png',
-                color: isDark ? 'from-red-500 to-pink-500' : 'from-red-400 to-pink-400'
+                color: isDark ? 'from-red-500 to-pink-500' : 'from-red-400 to-pink-400',
+                github: 'https://github.com/IshimweArlene/Fithub',
+                live: '#'
               },
               { 
                 title: 'AquaPay', 
                 desc: 'A secure digital payment solution that simplifies online transactions and money transfers. Features instant payments, multi-currency support, and advanced security protocols for safe financial transactions.',
-                icon: '💳',
+                icon: '�',
                 image: '/photos/AquaPay.png',
-                color: isDark ? 'from-blue-500 to-cyan-500' : 'from-blue-400 to-cyan-400'
+                color: isDark ? 'from-blue-500 to-cyan-500' : 'from-blue-400 to-cyan-400',
+                github: '#',
+                live: '#'
               },
               { 
                 title: 'SwiftCart', 
-                desc: 'A unified mobile marketplace that brings together restaurants, grocery stores, pharmacies, and local services in one platform. Features quick search, categorized services, digital rewards system, and seamless ordering to simplify everyday shopping.',
-                icon: '🛒',
+                desc: 'A sustainable food delivery platform that connects users with eco-friendly restaurants and organic food options. Features carbon footprint tracking, sustainable packaging options, and local farm partnerships to promote environmentally conscious dining.',
+                icon: '🌱',
                 image: '/photos/SwiftCart.png',
-                color: isDark ? 'from-purple-500 to-indigo-500' : 'from-purple-400 to-indigo-400'
+                color: isDark ? 'from-green-500 to-emerald-500' : 'from-green-400 to-emerald-400',
+                github: 'https://github.com/IshimweArlene/ShopSmart',
+                live: '#'
               },
             ].map((project, index) => (
               <div 
@@ -685,10 +694,10 @@ export default function Portfolio() {
                   )}
                   {/* Hover overlay icons */}
                   <div className="absolute inset-0 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                    <a href="#" className="w-10 h-10 rounded-lg flex items-center justify-center transition-all bg-black hover:bg-gray-800">
+                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg flex items-center justify-center transition-all bg-black hover:bg-gray-800">
                       <span className="text-white text-xl"><BsGithub/></span>
                     </a>
-                    <a href="#" className="w-10 h-10 rounded-lg flex items-center justify-center transition-all bg-black hover:bg-gray-800">
+                    <a href={project.live} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg flex items-center justify-center transition-all bg-black hover:bg-gray-800">
                       <span className="text-white text-xl">🔗</span>
                     </a>
                   </div>

@@ -1,34 +1,21 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import type { Metadata } from 'next';
+import './globals.css';
 
 export const metadata: Metadata = {
-  title: "Arlene ISHIMWE - Full Stack Developer",
-  description: "Full Stack Developer & Creative Technologist specializing in React, Next.js, and modern web technologies. View my projects and get in touch.",
+  title: 'Arlene Ishimwe — Software Developer',
+  description: 'Portfolio of Arlene Ishimwe, a software developer interested in useful digital products, systems, and creative technology.',
+  applicationName: 'Arlene Ishimwe Portfolio',
+  keywords: ['Arlene Ishimwe', 'software developer', 'full-stack developer', 'portfolio', 'Kigali', 'Rwanda'],
+  robots: { index: true, follow: true },
+  icons: { icon: '/favicon.svg' },
+  openGraph: {
+    title: 'Arlene Ishimwe — Software Developer',
+    description: 'A portfolio of software engineering, creative technology, and product-focused projects.',
+    type: 'website',
+  },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
-    </html>
-  );
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const themeScript = `try { document.documentElement.dataset.theme = localStorage.getItem('arlene-theme') === 'light' ? 'light' : 'dark'; } catch { document.documentElement.dataset.theme = 'dark'; }`;
+  return <html lang="en" suppressHydrationWarning><head><script dangerouslySetInnerHTML={{ __html: themeScript }} /></head><body>{children}</body></html>;
 }

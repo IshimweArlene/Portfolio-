@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Arlene ISHIMWE - Full Stack Developer
 
-## Getting Started
+A modern, responsive portfolio website showcasing my skills, projects, and experience as a Full Stack Developer. Built with Next.js 15, TypeScript, and Tailwind CSS.
 
-First, run the development server:
+## 🌟 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Modern Design**: Clean, professional interface with smooth animations
+- **Dark/Light Mode**: Toggle between themes with persistent preference
+- **Responsive Layout**: Optimized for all devices and screen sizes
+- **Interactive Animations**: Smooth scrolling, hover effects, and typing animations
+- **Contact Form**: Functional contact form with email integration using Resend
+- **Project Showcase**: Featured projects with live demos and GitHub links
+- **Skills Section**: Animated scrolling skills display
+- **Services Overview**: Horizontal scrolling services section
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Icons**: React Icons
+- **Email Service**: Resend API
+- **Deployment**: Vercel
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Installation & Setup
 
-## Learn More
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/IshimweArlene/portfolio_arlene.git
+   cd portfolio_arlene
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Set up environment variables**
+   Create a `.env.local` file in the root directory:
+   ```env
+   RESEND_API_KEY=your_resend_api_key_here
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. **Run the development server**
+   ```bash
+   npm run dev
+   ```
 
-## Deploy on Vercel
+5. **Open your browser**
+   Navigate to `http://localhost:3000`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📧 Contact Form Setup
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The contact form uses Resend for email delivery. To set it up:
+
+1. Sign up at [Resend](https://resend.com)
+2. Get your API key from the dashboard
+3. Add the API key to your `.env.local` file
+4. The form will send emails to the configured recipient
+
+## 🎨 Customization
+
+- **Colors**: Modify the color scheme in `tailwind.config.js`
+- **Content**: Update personal information in `app/page.tsx`
+- **Projects**: Add your projects in the projects array
+- **Skills**: Update the skills arrays for technical and soft skills
+- **Services**: Modify the services section with your offerings
+
+## 📱 Sections
+
+- **Hero**: Introduction with animated typing effect
+- **About**: Personal information and social links
+- **Skills**: Animated scrolling technical and soft skills
+- **Projects**: Featured projects with images and links
+- **Services**: Available services with descriptions
+- **Contact**: Functional contact form and contact information
+
+## 🌐 Live Demo
+
+Visit the live portfolio: [Your Portfolio URL]
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🤝 Contributing
+
+Feel free to fork this project and customize it for your own portfolio. If you find any bugs or have suggestions for improvements, please open an issue or submit a pull request.
+
+## 📞 Contact
+
+- **Email**: ishimwearlene74@gmail.com
+- **GitHub**: [@IshimweArlene](https://github.com/IshimweArlene)
+- **Instagram**: [@_arl_ene](https://www.instagram.com/_arl_ene)
+- **WhatsApp**: [+250 798 973 574](https://wa.me/250798973574)
+
+---
+
+⭐ If you found this portfolio helpful, please give it a star! 
